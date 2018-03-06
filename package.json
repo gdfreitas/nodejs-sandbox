@@ -20,5 +20,8 @@
   "devDependencies": {
     "express": "^4.16.2",
     "ejs": "^2.5.7"
+  },
+  "dependencies": {
+    "consign": "^0.1.6"
   }
 }
