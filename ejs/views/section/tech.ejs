@@ -8,5 +8,12 @@
 </head>
 <body>
    <h1>Conteúdos sobre tecnologia</h1>
+
+   <ul>
+      <% for(var i = 0; i < content.length; i++) { %>
+      <li><%= content[i].name %></li>
+      <% }%>
+   </ul>
+
 </body>
 </html>
