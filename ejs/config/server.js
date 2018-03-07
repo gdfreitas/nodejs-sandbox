@@ -18,6 +18,9 @@ server.use(bodyParser.json());
 // input validator
 server.use(expressValidator());
 
+// servir arquivos estáticos
+server.use(express.static('../assets'))
+
 server.listen(constants.SERVER_PORT,
    () => console.log(`Server is running on port ${constants.SERVER_PORT}`)
 );
