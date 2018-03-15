@@ -1,6 +1,6 @@
 body {
    background-color: #444;
-   background: url('../images/login-bg.jpg');  
+   background: url('../imgs/login-bg.jpg');  
 }
 
 .form-signin input[type="text"] {
