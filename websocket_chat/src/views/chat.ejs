@@ -1,147 +1,129 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8">
 
-		<title>Multiroom Chat</title>
-		
-		<!-- JQUERY -->
-		<script src="js/jquery-2.2.1.js"></script>
-		
-		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
-		<!-- estilo -->
-		<link href="css/style.css" rel="stylesheet">
-		
-		<script type="text/javascript">
-		
-			$(document).ready(function(){
-				$("#exibe_chat").click(function(){
-					$("#conversa").show();
-					$("#participantes").hide();
-					ocultaNavbar();
-				});
-				
-				$("#exibe_participantes").click(function(){
-					$("#participantes").show();
-					$("#conversa").hide();
-					ocultaNavbar();
-				});
-			});
-			
-			function ocultaNavbar(){
-				$("#btn_navbar_toggle").attr("class","navbar-toggle collapsed");
-				$("#navbar-collapse-1").attr("class","navbar-collapse collapse");
-				$("#btn_navbar_toggle").attr("aria-expanded","false");
-				$("#navbar-collapse-1").attr("aria-expanded","false");
-			}
-		</script>
-	</head>
+   <head>
+      <meta charset="UTF-8">
 
-	<body>
-	
-	
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" id="btn_navbar_toggle">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Multiroom Chat</a>
-				</div>
-				
-				
-				<div class="collapse navbar-collapse" id="navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="#" id="exibe_chat">Chat</a>
-						</li>
-						<li>
-							<a href="#" id="exibe_participantes">Participantes</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	
-		<div class="container">
-            <div class="row conversa" id="conversa">
-				<div class="col-md-1"></div>
-				<div class="col-md-10">
-					<div class="dialogo">
-						<h4>Jorge</h4>
-						<p>Fala José, blz cara?</p>
-					</div>
-					
-					<div class="dialogo">
-						<h4>José</h4>
-						<p>Opa, tudo certo!</p>
-					</div>
-					
-					<div class="dialogo">
-						<h4>Jorge</h4>
-						<p>Vai estudar mais sobre NodeJS hoje?</p>
-					</div>
-					
-					<div class="dialogo">
-						<h4>José</h4>
-						<p>Sim, com certeza. Vamos trabalhar com Websockets hoje, o assunto é bem interessante</p>
-					</div>
-					
-					<div class="dialogo">
-						<h4>Jorge</h4>
-						<p>Show de bola, comunicação bi-direcional em páginas ou sistemas web é muito bacana mesmo</p>
-					</div>
-				</div>
-				<div class="col-md-1"></div>
-                
+      <title>Multiroom Chat</title>
+
+      <!-- JQUERY -->
+      <script src="js/jquery-2.2.1.js"></script>
+
+      <!-- bootstrap - link cdn -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+         crossorigin="anonymous">
+
+      <!-- estilo -->
+      <link href="css/style.css" rel="stylesheet">
+
+      <script type="text/javascript">
+
+         $(document).ready(function () {
+            $("#exibe_chat").click(function () {
+               $("#conversa").show();
+               $("#participantes").hide();
+               ocultaNavbar();
+            });
+
+            $("#exibe_participantes").click(function () {
+               $("#participantes").show();
+               $("#conversa").hide();
+               ocultaNavbar();
+            });
+         });
+
+         function ocultaNavbar() {
+            $("#btn_navbar_toggle").attr("class", "navbar-toggle collapsed");
+            $("#navbar-collapse-1").attr("class", "navbar-collapse collapse");
+            $("#btn_navbar_toggle").attr("aria-expanded", "false");
+            $("#navbar-collapse-1").attr("aria-expanded", "false");
+         }
+      </script>
+   </head>
+
+   <body>
+
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" id="btn_navbar_toggle">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Multiroom Chat</a>
             </div>
-			
-			<div class="row participantes" id="participantes" style="display:none">
-				<div class="col-md-1"></div>
-				<div class="col-md-10">
-					<span class="participante">
-						<img src="imgs/ico_usuario.png" />
-						Jorge
-					</span>
-					
-					<span class="participante">
-						<img src="imgs/ico_usuario.png" />
-						José
-					</span>
-					
-					<span class="participante">
-						<img src="imgs/ico_usuario.png" />
-						Fernando
-					</span>
-				</div>
-				<div class="col-md-1"></div>
-                
+
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href="#" id="exibe_chat">Chat</a>
+                  </li>
+                  <li>
+                     <a href="#" id="exibe_participantes">Participantes</a>
+                  </li>
+               </ul>
             </div>
-        </div>
-		
-		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-			<div class="container">
-				<div class="panel-body campo-mensagem">
-					<form>
-						<div class="col-md-12">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Mensagem">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">></button>
-								</span>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</nav>		
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		
-	</body>
+         </div>
+      </nav>
+
+      <div class="container">
+         <div class="row conversa" id="conversa">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="dialogos"></div>
+            <div class="col-md-1"></div>
+
+         </div>
+
+         <div class="row participantes" id="participantes" style="display:none">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+            </div>
+            <div class="col-md-1"></div>
+
+         </div>
+      </div>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+         <div class="container">
+            <div class="panel-body campo-mensagem">
+               <form>
+                  <div class="col-md-12">
+                     <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Mensagem">
+                        <span class="input-group-btn">
+                           <button class="btn btn-default" type="button">></button>
+                        </span>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </nav>
+
+      <script 
+         src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+         crossorigin="anonymous">
+      </script>
+
+      <script src="/socket.io/socket.io.js"></script>
+
+      <script>
+         var socket = io('http://localhost')
+
+         socket.on('user.joined', function(data) {
+            var box = '<div class="dialogo">';
+               box += '<h4>' + data.nickname + '</h4>';
+               box += '<p>' + data.msg + '</p>';
+               box += '</div>';
+
+            document.querySelector('#dialogos').innerHTML += box;
+         })
+      </script>
+
+   </body>
+
 </html>

@@ -12,6 +12,12 @@ module.exports.start = (application, req, res) => {
    if (errors) {
       res.render('index', {errors: errors.map(error => error.msg)});
    } else {
+
+      application.get('io').emit('user.joined', {
+         nickname: content.nickname,
+         msg: `acabou de entrar no chat`
+      })
+
       res.render('chat')
    }
 
