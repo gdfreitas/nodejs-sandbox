@@ -15,7 +15,18 @@ app.get('io').on('connection', (socket) => {
    socket.on('disconnect', () => {
       console.log('usuário desconectou');
    })
+
+   socket.on('chat:msg:new', (data) => {
+      // dialogos
+      _notify(socket, 'chat:msg', { nickname: data.nickname, msg: data.msg})
+
+      // usuários que estão ativos enviando mensagens no chat
+      _notify(socket, 'user:joined', { nickname: data.nickname })
+   })
+
 })
 
-
-
+const _notify = (socket, eventName, payload) => {
+   socket.emit(eventName, payload)
+   socket.broadcast.emit(eventName, payload)
+}

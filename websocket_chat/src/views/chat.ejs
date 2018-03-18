@@ -6,39 +6,15 @@
 
       <title>Multiroom Chat</title>
 
-      <!-- JQUERY -->
-      <script src="js/jquery-2.2.1.js"></script>
-
       <!-- bootstrap - link cdn -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      <link 
+         rel="stylesheet" 
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
          crossorigin="anonymous">
 
       <!-- estilo -->
       <link href="css/style.css" rel="stylesheet">
 
-      <script type="text/javascript">
-
-         $(document).ready(function () {
-            $("#exibe_chat").click(function () {
-               $("#conversa").show();
-               $("#participantes").hide();
-               ocultaNavbar();
-            });
-
-            $("#exibe_participantes").click(function () {
-               $("#participantes").show();
-               $("#conversa").hide();
-               ocultaNavbar();
-            });
-         });
-
-         function ocultaNavbar() {
-            $("#btn_navbar_toggle").attr("class", "navbar-toggle collapsed");
-            $("#navbar-collapse-1").attr("class", "navbar-collapse collapse");
-            $("#btn_navbar_toggle").attr("aria-expanded", "false");
-            $("#navbar-collapse-1").attr("aria-expanded", "false");
-         }
-      </script>
    </head>
 
    <body>
@@ -79,29 +55,29 @@
 
          <div class="row participantes" id="participantes" style="display:none">
             <div class="col-md-1"></div>
-            <div class="col-md-10">
-            </div>
+            <div class="col-md-10" id="pessoas"></div>
             <div class="col-md-1"></div>
-
          </div>
       </div>
 
       <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
          <div class="container">
             <div class="panel-body campo-mensagem">
-               <form>
-                  <div class="col-md-12">
-                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Mensagem">
-                        <span class="input-group-btn">
-                           <button class="btn btn-default" type="button">></button>
-                        </span>
-                     </div>
+               <div class="col-md-12">
+                  <div class="input-group">
+                     <input type="text" class="form-control" placeholder="Mensagem" id="mensagem">
+                     <input type="hidden" value="<%=content.nickname%>" id="nickname">
+                     <span class="input-group-btn">
+                        <button class="btn btn-primary" id="btnEnviarMensagem" type="button">Enviar</button>
+                     </span>
                   </div>
-               </form>
+               </div>
             </div>
          </div>
       </nav>
+
+      <!-- JS -->
+      <script src="js/jquery-2.2.1.js"></script>
 
       <script 
          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
@@ -109,20 +85,9 @@
          crossorigin="anonymous">
       </script>
 
+      <script src="js/chat-behaviours.js"></script>
       <script src="/socket.io/socket.io.js"></script>
-
-      <script>
-         var socket = io('http://localhost')
-
-         socket.on('user.joined', function(data) {
-            var box = '<div class="dialogo">';
-               box += '<h4>' + data.nickname + '</h4>';
-               box += '<p>' + data.msg + '</p>';
-               box += '</div>';
-
-            document.querySelector('#dialogos').innerHTML += box;
-         })
-      </script>
+      <script src="/js/chat-core.js"></script>
 
    </body>
 
