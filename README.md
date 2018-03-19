@@ -11,3 +11,4 @@ Práticas de abrangência geral com NodeJS
 ### **consign**: utilitário usado para carregar automaticamente todos os templates de um determinado diretório
 ### **body-parser**: middleware para fazer o parse do body das requests
 ### **mongodb**: base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
+### **crypto**: fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.
