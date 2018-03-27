@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/gdfreitas/nodejs.git"
   },
-  "keywords": [],
+  "keywords": ["nodejs", "async"],
   "author": "",
   "license": "ISC",
   "bugs": {
