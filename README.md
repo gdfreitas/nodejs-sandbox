@@ -6,6 +6,12 @@ Repositório destinado à reunir e aplicar conceitos, documentar e ou referênci
 
 Plataforma de código aberto para a execução de JavaScript. É composto pela junção do interpretador V8, do Google, com a biblioteca libuv, e por outros conjuntos de módulos.
 
+## Características
+
+**Event loop**:
+
+**REPL ou Read-Eval-Print-Loop**: forma de escrever, validar códigos através da linha de comando, é basicamente um console interativo, comportamento semelhante ao console do navegador Chrome, onde pode-se criar variáveis, funções, e validá-las em linhas posteriores.
+
 ## Módulos
 
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
