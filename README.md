@@ -4,6 +4,7 @@ Repositório destinado à reunir e aplicar conceitos, documentar e ou referênci
 
 ## Módulos
 
+- [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
 - **[Async](https://caolan.github.io/async/docs.html)** módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
 - **[EJS](http://ejs.co/)** `<% Embedded Javascript %>`: linguagem de templating para gerar HTMLs com javascript.
 - `crypto` fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.

@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/gdfreitas/nodejs.git"
   },
-  "keywords": ["nodejs", "async"],
+  "keywords": [
+    "nodejs",
+    "async"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -28,5 +31,8 @@
     "lodash": "^4.17.5",
     "pg": "^7.4.3",
     "morgan": "^1.9.1"
+  },
+  "dependencies": {
+    "cluster": "^0.7.7"
   }
 }
