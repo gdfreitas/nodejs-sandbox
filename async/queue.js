@@ -19,7 +19,6 @@ let queue = async.queue((task, callback) => {
 // callback quando a fila não possuir mais nenhum
 queue.drain = () =>  {
     console.log('A fila está vazia');
-    // _generateRandomTasks(10);
 }
 
 _generateRandomTasks(10);
