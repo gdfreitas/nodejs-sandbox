@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-postgres",
+  "version": "1.0.0",
+  "description": "Aplicacao simples utilizando node.js e postgres",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Freitas",
+  "license": "ISC"
+}
