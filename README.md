@@ -2,6 +2,10 @@
 
 Repositório destinado à reunir e aplicar conceitos, documentar e ou referênciar qualquer conteúdo relacionado à Node.js
 
+## O que é
+
+Plataforma de código aberto para a execução de JavaScript. É composto pela junção do interpretador V8, do Google, com a biblioteca libuv, e por outros conjuntos de módulos.
+
 ## Módulos
 
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
@@ -17,6 +21,8 @@ Repositório destinado à reunir e aplicar conceitos, documentar e ou referênci
 - `mongodb` base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
 
 ## Referências
+
+[Node.js @ GitHub](https://github.com/nodejs/node)
 
 [Node.js @ Rodrigo Branas](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 
