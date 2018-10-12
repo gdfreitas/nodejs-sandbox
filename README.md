@@ -30,6 +30,10 @@ Plataforma de código aberto para a execução de JavaScript. É composto pela j
 
 ## Referências
 
+[Node.js Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/index.html)
+[Node.js Documentation | Process | Memory Usage](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_memoryusage)
+[Node.js Documentation | Process | Exit Codes](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_exit_codes)
+
 [Node.js @ GitHub](https://github.com/nodejs/node)
 
 [Node.js @ Rodrigo Branas](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
