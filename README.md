@@ -12,6 +12,8 @@ Plataforma de código aberto para a execução de JavaScript. É composto pela j
 
 **REPL ou Read-Eval-Print-Loop**: forma de escrever, validar códigos através da linha de comando, é basicamente um console interativo, comportamento semelhante ao console do navegador Chrome, onde pode-se criar variáveis, funções, e validá-las em linhas posteriores.
 
+**CommonJS**: específicação de sistema de módulos para javascript, utilizada pelo node. [Docs](http://wiki.commonjs.org/wiki/CommonJS)
+
 ## Módulos
 
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
@@ -33,5 +35,7 @@ Plataforma de código aberto para a execução de JavaScript. É composto pela j
 [Node.js @ Rodrigo Branas](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 
 [Curso Desenvolvedor Node.js @ Udemy](https://www.udemy.com/curso-completo-do-desenvolvedor-nodejs)
+
+[CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
 
 [JavaScript Pro Tips - Code This, NOT That](https://youtu.be/Mus_vwhTCq0)
