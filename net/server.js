@@ -1,10 +1,10 @@
 const net = require('net')
 
+const { SERVER_PORT } = require('../utils/constants');
+
 let connections = [];
 
 net.createServer(connection => {
-
-    connection.setTimeout(0)
 
     connections.push(connection);
 
@@ -35,7 +35,7 @@ net.createServer(connection => {
         connections.splice(connections.indexOf(connection), 1);
     })
 
-}).listen(3000)
+}).listen(SERVER_PORT)
 
 const broadcast = (message, origin) => {
     connections.forEach(connection => {

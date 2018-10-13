@@ -1,6 +1,8 @@
 const net = require('net')
 
-const client = net.connect(3000);
+const { SERVER_PORT } = require('../utils/constants');
+
+const client = net.connect(SERVER_PORT);
 
 client.on('connect', () => {
     client.write('Hello, I am the Client!')
