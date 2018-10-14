@@ -1,30 +1,45 @@
-const http = require('http')
+const router = require('./router')
 
 const { SERVER_PORT } = require('../utils/constants');
 const templateBuilder = require('../utils/template-builder')
 
-const server = http.createServer(function (req, res) {
+const app = router(SERVER_PORT)
+
+app.interceptor((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
-    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.write(getTemplate(req.url), 'utf-8');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+    next();
+})
+
+app.get('/tech', (req, res) => {
+    res.setHeader('Content-Type', 'text/html')
+    res.write(templateBuilder.build(`<h1>Conteúdos sobre tecnologia</h1>`), 'utf-8');
+})
+
+app.get('/health', (req, res) => {
+    res.setHeader('Content-Type', 'text/html')
+    res.write(templateBuilder.build(`<h1>Conteúdos sobre saúde</h1>`), 'utf-8');
+})
+
+app.post('/health', (req, res)=> {
+    res.setHeader('Content-Type', 'application/json;chartset=UTF-8')
+    console.log(req.body);
     res.end();
-});
+})
 
-const getTemplate = (url) => {
-    switch (url) {
-        case '/tech':
-            return templateBuilder.build(`<h1>Conteúdos sobre tecnologia</h1>`);
-        case '/health':
-            return templateBuilder.build(`<h1>Conteúdos sobre saúde</h1>`);
-        default:
-            return templateBuilder.build(`
-            <h1>Home</h1>
-            <ul>
-                <li><a href="/tech">Tecnologias</a></li>
-                <li><a href="/health">Saúde</a></li>
-            </ul>
-            `);
-    }
-}
+app.get('/', (req, res) => {
 
-server.listen(SERVER_PORT)
+    const page = templateBuilder.build(`
+        <h1>Home</h1>
+        <ul>
+            <li><a href="/tech">Tecnologias</a></li>
+            <li><a href="/health">Saúde</a></li>
+        </ul>
+    `);
+
+    res.write(page, 'utf-8');
+})
+
+app.options('/', (req, res) => {
+    res.end();
+})
