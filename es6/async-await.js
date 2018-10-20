@@ -1,60 +1,27 @@
-const random = () => {
-    return Promise.resolve(Math.random())
-}
+const fs = require('fs')
 
-'Bad Promise Code 💩'
+const readFilePromise = filename => new Promise((resolve, reject) => {
+    fs.readFile(filename, (err, data) => {
+        if (err) {
+            reject(err)
+        } else {
+            resolve(data)
+        }
+    })
+})
 
-const sumRandomAsyncNums = () => {
-    let first;
-    let second;
-    let third;
+// modo convencional de trabalhar com promises
+readFilePromise('./scientists.json')
+    .then(data => console.log(data.toString()))
+    .catch(err => console.error(err))
 
-    return random()
-        .then(v => {
-            first = v;
-            return random();
-        })
-        .then(v => {
-            second = v;
-            return random();
-        })
-        .then(v => {
-            third = v;
-            return first + second + third
-        })
-        .then(v => {
-            console.log(`Result ${v}`)
-        });
-}
-
-
-'Good Promise Code ✅'
-
-const sumRandomAsyncNums = async() => {
-
-    const first = await random();
-    const second = await random();
-    const third = await random();
-
-    console.log(`Result ${first + second + third}`);
-
-    if (await random()) {
-        // do something
+// async-await approach :D
+async function read() {
+    try {
+        const scientists = await readFilePromise('./scientists.json')
+        console.log(scientists.toString());
+    } catch (err) {
+        console.error('Erro ao recuperar arquivo', err)
     }
-
-    const randos = Promise.all([
-        random(), 
-        random(),
-        random()
-    ])
-
-    for(const r of await randos) {
-        console.log(r)
-    }
-
-
 }
-
-
-
-sumRandomAsyncNums()
+read();
