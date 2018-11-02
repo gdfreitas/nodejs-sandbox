@@ -33,6 +33,7 @@ Plataforma de código aberto para a execução de JavaScript. É composto pela j
 - [Node.js Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/index.html)
   - [Node.js Documentation | Process | Memory Usage](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_memoryusage)
   - [Node.js Documentation | Process | Exit Codes](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_exit_codes)
+  - [Node.js Documentation | Process | Signal Events](https://nodejs.org/api/process.html#process_signal_events)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
 - [Node.js @ Rodrigo Branas](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)

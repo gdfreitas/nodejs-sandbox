@@ -5,11 +5,11 @@ console.log(Object.keys(global)) // global, process, GLOBAL, root, Buffer, clear
 console.log(arguments) // exports, require, module, __filename, __dirname
 
 // 04 diferentes métodos para definir variáveis no escopo global (prática ruim)
-global.MAX_VALUE = 10;
-GLOBAL.MAX_VALUE = 10;
-root.MAX_VALUE = 10;
-MAX_VALUE = 10;
+global.MAX_VALUE = 10
+GLOBAL.MAX_VALUE = 10
+root.MAX_VALUE = 10
+MAX_VALUE = 10
 
-const logger = require('./logger');
+const logger = require('./logger')
 logger.logFromGlobal()
 logger.logFromConfigModule()

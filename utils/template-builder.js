@@ -9,5 +9,4 @@ module.exports.build = content => `
       <p>${content}</p>
    </body>
 </html>
-`;
-
+`

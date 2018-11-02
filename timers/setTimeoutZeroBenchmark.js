@@ -1,4 +1,4 @@
 console.time('setTimeout')
-setTimeout(function() {
+setTimeout(function () {
     console.timeEnd('setTimeout')
 }, 0)

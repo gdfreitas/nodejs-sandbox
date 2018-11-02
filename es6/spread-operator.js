@@ -1,4 +1,4 @@
-const person = { name: 'Maria' };
+const person = { name: 'Maria' }
 const attributes = { age: 21, graduation: 'Software Engineering' }
 
 // modo convencional de copiar propriedades entre objetos

@@ -1,4 +1,4 @@
 console.time('setImmediate')
-setImmediate(function() {
+setImmediate(function () {
     console.timeEnd('setImmediate')
 })

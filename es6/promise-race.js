@@ -1,28 +1,30 @@
 const requestBahia = new Promise((resolve, reject) => {
-    setTimeout(resolve, 500, 'Bahia!');
-});
+    setTimeout(resolve, 500, 'Bahia!')
+})
 
 const requestSaoPaulo = new Promise((resolve, reject) => {
-    setTimeout(resolve, 100, 'Sao Paulo!');
-});
+    setTimeout(resolve, 100, 'Sao Paulo!')
+})
 
 Promise.race([requestBahia, requestSaoPaulo]).then(value => {
-    console.log(value); // 'Sao Paulo!'
+    console.log(value) // 'Sao Paulo!'
     // Ambos resolvem, mas requestSaoPaulo é mais rápido
-});
+})
 
 const requestCalifornia = new Promise((resolve, reject) => {
-    setTimeout(resolve, 500, 'California!');
-});
+    setTimeout(resolve, 500, 'California!')
+})
 
 const timeoutLimit = new Promise((resolve, reject) => {
-    setTimeout(reject, 100, 'Tempo limite da requisição foi excedido!');
-});
+    setTimeout(reject, 100, 'Tempo limite da requisição foi excedido!')
+})
 
-Promise.race([requestCalifornia, timeoutLimit])
-    .then(value => {
+Promise.race([requestCalifornia, timeoutLimit]).then(
+    value => {
         console.log('nada') // Não é chamado
-    }, reason => {
-        console.log(reason); // `Tempo limite da requisição foi excedido!`
+    },
+    reason => {
+        console.log(reason) // `Tempo limite da requisição foi excedido!`
         // timeoutLimit é mais rápido, então ela rejeita
-    });
+    }
+)

@@ -1,11 +1,11 @@
 const isPrime = function (number) {
-    if (number < 2) return false;
+    if (number < 2) return false
     for (var i = 2; i <= Math.floor(Math.sqrt(number)); i++) {
-        if (number % i === 0) return false;
+        if (number % i === 0) return false
     }
-    return true;
-};
+    return true
+}
 
-module.exports = { 
-    isPrime: isPrime 
+module.exports = {
+    isPrime: isPrime
 }

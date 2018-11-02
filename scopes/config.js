@@ -1,1 +1,1 @@
-exports.MIN_VALUE = 10;
+exports.MIN_VALUE = 10

@@ -9,7 +9,7 @@ wolf.yowl() // yowling
 
 // method notation in objects
 const human = {
-    eat() {
+    eat () {
         console.log('eating')
     }
 }
