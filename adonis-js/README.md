@@ -1,6 +1,8 @@
-# Adonis API application
+# Adonis.js Framework
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+Esta estrutura foi gerada automaticamente pelo utilitário de linha de comando do adonis.
+
+O Adonis abstrai implementações como:
 
 1. Bodyparser
 2. Authentication
@@ -10,19 +12,18 @@ This is the boilerplate for creating an API server in AdonisJs, it comes pre-con
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Inicializar estrutura de uma api:
 
-```bash
-adonis new yardstick --api-only
-```
+```adonis new adonis-js --api-only```
 
-or manually clone the repo and then run `npm install`.
+## Migrations
 
+```adonis migration:run```
 
-### Migrations
+## Controllers
 
-Run the following command to run startup migrations.
+```adonis make:controller Auth```
 
-```js
-adonis migration:run
-```
+## Rodar servidor de desenvolvimento
+
+```adonis serve --dev```
