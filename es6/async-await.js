@@ -1,8 +1,8 @@
 const fs = require('fs')
 
-const readFilePromise = filename =>
+const readFilePromise = filePath =>
     new Promise((resolve, reject) => {
-        fs.readFile(filename, (err, data) => {
+        fs.readFile(filePath, (err, data) => {
             if (err) {
                 reject(err)
             } else {
@@ -11,18 +11,28 @@ const readFilePromise = filename =>
         })
     })
 
-// modo convencional de trabalhar com promises
-readFilePromise('./scientists.json')
-    .then(data => console.log(data.toString()))
-    .catch(err => console.error(err))
+// método convencional de trabalhar com promises
+readFilePromise('./resources/scientists.json')
+    .then(scientistsJson => {
+        try {
+            console.log(JSON.parse(scientistsJson))
+        } catch (err) {
+            console.error('Não foi possível fazer o parse do arquivo', err)
+        }
+    })
+    .catch(err => console.error('Ocorreu um erro inesperado', err))
 
-// async-await approach :D
-async function read () {
+// método utilizando async-await
+async function getScientists (filePath) {
     try {
-        const scientists = await readFilePromise('./scientists.json')
-        console.log(scientists.toString())
+        const scientistsJson = await readFilePromise(filePath)
+        return JSON.parse(scientistsJson)
     } catch (err) {
-        console.error('Erro ao recuperar arquivo', err)
+        // trata erros como o reject de uma Promise
+        // também já trata erros do método parse do JSON
+        console.error('Ocorreu um erro inesperado', err)
     }
 }
-read()
+
+const scientists = getScientists('./resources/scientists.json')
+console.log(scientists.length)
