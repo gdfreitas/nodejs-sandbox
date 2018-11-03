@@ -51,6 +51,7 @@ export default class GitHub {
 
         try {
             const response = await gitHubApi.get(`/users/${repositoryInput}`)
+            // eslint-disable-next-line
             const { avatar_url, name, bio, html_url } = response.data
 
             this.repositories.push({
