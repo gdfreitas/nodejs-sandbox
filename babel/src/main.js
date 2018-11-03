@@ -2,8 +2,9 @@
 import TodoList from './features/TodoList'
 
 // import { sum as soma, sub } from './utils/mathematics'
-
 import * as mathematics from './utils/mathematics'
+
+import minhaPromise from './utils/minhaPromise'
 
 TodoList.doSomethingNotRelatedToInstance()
 
@@ -30,3 +31,18 @@ console.log(resto)
 // console.log(sub(10, 5))
 console.log(mathematics.sum(1, 2))
 console.log(mathematics.sub(10, 5))
+
+// Promise ES6
+minhaPromise()
+    .then(console.log)
+    .catch(console.error)
+
+// @babel/plugin-transform-async-to-generator
+// async e await ES8
+const executaPromise = async () => {
+    const resultado1 = await minhaPromise()
+    console.log(resultado1)
+    const resultado2 = await minhaPromise()
+    console.log(resultado2)
+}
+executaPromise()
