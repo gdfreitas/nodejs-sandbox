@@ -20,10 +20,24 @@ Inicializar estrutura de uma api:
 
 ```adonis migration:run```
 
+## Model
+
+```adonis make:model Tweet -m -c```
+
+- `-c` cria automaticamente um controller para o model
+- `-m` cria automaticamente um migration para o model
+
 ## Controllers
 
 ```adonis make:controller Auth```
 
+## Routes
+
+Exibir as rotas existentes de forma interativa:
+
+```adonis route:list```
+
 ## Rodar servidor de desenvolvimento
 
 ```adonis serve --dev```
+
