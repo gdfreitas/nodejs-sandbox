@@ -1,6 +1,8 @@
 // imports com babel-loader no web
 import TodoList from './features/TodoList'
 
+import GitHubApi from './features/GitHubApi'
+
 // import { sum as soma, sub } from './utils/mathematics'
 import * as mathematics from './utils/mathematics'
 
@@ -46,3 +48,6 @@ const executaPromise = async () => {
     console.log(resultado2)
 }
 executaPromise()
+
+GitHubApi.printUserInfo('gdfreitasjuvenal')
+GitHubApi.printUserInfo('gdfreitas')
