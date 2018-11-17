@@ -47,6 +47,7 @@ São categorizadas:
 
 ## Módulos Interessantes
 
+- [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
 - [Async](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
 - [EJS](http://ejs.co/) `<% Embedded Javascript %>`: linguagem de templating para gerar HTMLs com javascript.
