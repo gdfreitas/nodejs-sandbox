@@ -39,5 +39,8 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.5",
     "pg": "^7.4.3"
+  },
+  "dependencies": {
+    "numeral": "^2.0.6"
   }
 }
