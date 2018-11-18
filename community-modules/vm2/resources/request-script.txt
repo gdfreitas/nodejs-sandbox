@@ -1,0 +1,8 @@
+var request = require('request');
+request('https://api.github.com/users/gdfreitas', function (err, response, body) {
+    if (err) {
+        console.error(err)
+    } else {
+        console.log(response.statusCode)
+    }
+})
