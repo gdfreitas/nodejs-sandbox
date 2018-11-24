@@ -53,11 +53,11 @@ const server = http.createServer((request, response) => {
             request.on('end', () => {
                 const parsedChunks = Buffer.concat(chunks).toString();
                 console.log('parsedChunks', parsedChunks)
-                fs.unlinkSync('message.json')
-                fs.writeFileSync('message.json', parsedChunks)
-                response.statusCode = 302;
-                response.setHeader('Location', '/')
-                response.end();
+                fs.writeFile('message.json', parsedChunks, err => {
+                    response.statusCode = 302;
+                    response.setHeader('Location', '/')
+                    response.end();
+                })
             })
         }
     }
