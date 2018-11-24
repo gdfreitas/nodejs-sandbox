@@ -41,7 +41,7 @@ São categorizadas:
 - V8 Engine embutido no browser Google Chrome (web);
 - SpiderMonkey Engine embutido no browser Firefox (web);
 
-**REPL ou Read-Eval-Print-Loop**: forma de escrever, validar códigos através da linha de comando, é basicamente um console interativo, comportamento semelhante ao console do navegador Chrome, onde pode-se criar variáveis, funções, e validá-las em linhas posteriores.
+**REPL ou Read-Eval-Print-Loop**: forma de escrever e validar códigos através da linha de comando, é basicamente um "console interativo", comportamento semelhante ao console do navegador Chrome, onde pode-se criar variáveis, funções, e validá-las em linhas posteriores.
 
 **CommonJS**: específicação de sistema de módulos para javascript, utilizada pelo node. [Docs](http://wiki.commonjs.org/wiki/CommonJS)
 
