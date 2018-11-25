@@ -45,13 +45,17 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 
 **CommonJS**: específicação de sistema de módulos para javascript, utilizada pelo node. [Docs](http://wiki.commonjs.org/wiki/CommonJS)
 
-## Módulos Interessantes
+## Core Modules
 
 - [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
+- `crypto` fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.
+- TODO...
+
+## Community Modules
+
 - [Async](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
 - [EJS](http://ejs.co/) `<% Embedded Javascript %>`: linguagem de templating para gerar HTMLs com javascript.
-- `crypto` fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.
 - `express` servidor web não organizado e minimalista para NodeJS
 - `express-validator` middleware para validações de parâmetros em requests
 - `express-session` middleware para criação e controle de sessions utilizando cookies
@@ -59,19 +63,19 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - `consign` utilitário usado para carregar automaticamente todos os templates de um determinado diretório
 - `body-parser` middleware para fazer o parse do body das requests
 - `mongodb` base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
-- ... TODO
+- TODO...
 
 ## Referências
 
-- [Loupe - Site interativo para entender callstack, event loop, APIs e callback queue](http://latentflip.com/loupe)
-- [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-- [Node.js Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/index.html)
-  - [Node.js Documentation | Process | Memory Usage](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_memoryusage)
-  - [Node.js Documentation | Process | Exit Codes](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_exit_codes)
-  - [Node.js Documentation | Process | Signal Events](https://nodejs.org/api/process.html#process_signal_events)
-- [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- [Official Node.js Guides](https://nodejs.org/en/docs/guides/)
+- [Official Node.js Documentations](https://nodejs.org/dist/latest/docs/api/)
+- [Node.js - Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
+- [Node.js - Blocking Code & Non-Blocking Code](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
 - [Node.js @ Rodrigo Branas](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
+- [Loupe - Site interativo para entender callstack, event loop, APIs e callback queue](http://latentflip.com/loupe)
+- [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+- [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 - [Holding on to your Performance Promises - Maya Lekova and Benedikt Meurer](https://www.youtube.com/watch?v=DFP5DKDQfOc&)
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)
 - [Pagar.me - Talks @ Youtube](https://www.youtube.com/channel/UCNhSCufrcOMeFvzEM7tt9Lw)
