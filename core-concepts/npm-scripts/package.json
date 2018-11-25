@@ -1,0 +1,12 @@
+{
+  "name": "npm-scripts",
+  "version": "1.0.0",
+  "description": "Node Package Manager Scripts Sandbox",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "node app.js"
+  },
+  "author": "Gabriel Freitas",
+  "license": "ISC"
+}

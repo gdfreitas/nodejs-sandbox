@@ -1,0 +1,14 @@
+{
+  "name": "nodemon-sandbox",
+  "version": "1.0.0",
+  "description": "Nodemon Sandbox",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Gabriel Freitas",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
