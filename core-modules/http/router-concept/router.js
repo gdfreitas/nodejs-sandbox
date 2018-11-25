@@ -48,7 +48,8 @@ const createRouter = port => {
             }
             routes[req.method][req.url](req, res)
         })
-    }).listen(port)
+    })
+    .listen(port)
 
     return api
 }
