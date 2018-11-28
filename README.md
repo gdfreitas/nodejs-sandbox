@@ -61,6 +61,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - `body-parser` middleware para fazer o parse do body das requests
 - [Async](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
 - [EJS](http://ejs.co/) `<% Embedded Javascript %>`: linguagem de templating para gerar HTMLs com javascript.
+- [pug](https://pugjs.org/api/reference.html) template engine
 - `consign` utilitário usado para carregar automaticamente todos os templates de um determinado diretório
 - `mongodb` base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
 - TODO...
