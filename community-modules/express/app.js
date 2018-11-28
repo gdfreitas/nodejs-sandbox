@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(anthenticationMiddleware);
 
-app.use('/admin', adminRoutes);
+app.use('/admin', adminRoutes.routes);
 app.use(shopRoutes);
 
 app.use(pageNotFoundMiddleware)
