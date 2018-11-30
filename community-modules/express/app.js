@@ -2,13 +2,23 @@ const path = require('path')
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const expressHandleBars = require('express-handlebars')
 
 const SERVER_PORT = process.env.SERVER_PORT || 80;
 
 const app = express();
 
-app.set('view engine', 'pug') // valor padrão é undefined
-app.set('views', 'views') // $cwd/views é o valor padrão desta variável
+// diferente do pug que, é preciso alterar a engine default
+const HANDLEBARS_ENGINE_NAME = 'hbs';
+app.engine(HANDLEBARS_ENGINE_NAME, expressHandleBars({
+    layoutsDir: 'views/layouts/',
+    defaultLayout: 'main-layout',
+    extname: 'hbs'
+}));
+
+// app.set('view engine', 'pug')
+app.set('view engine', HANDLEBARS_ENGINE_NAME)
+app.set('views', 'views')
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
