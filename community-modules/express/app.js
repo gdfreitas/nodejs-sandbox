@@ -8,7 +8,7 @@ const SERVER_PORT = process.env.SERVER_PORT || 80;
 const app = express();
 
 app.set('view engine', 'pug') // valor padrão é undefined
-// app.set('views', 'views') $cwd/views é o valor padrão desta variável
+app.set('views', 'views') // $cwd/views é o valor padrão desta variável
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
