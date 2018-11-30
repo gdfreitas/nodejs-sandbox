@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.use((req, res, next) => {
     res.status(NOT_FOUND_STATUS_CODE)
-        .sendFile(path.join(__dirname, '..', 'views', '404.html'))
+        .render('404', { pageTitle: 'Page Not Found' })
 })
 
 module.exports = router;
