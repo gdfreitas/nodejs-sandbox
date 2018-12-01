@@ -76,7 +76,6 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
 - [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
-- [The Strict Mode of ECMAScript](http://www.ecma-international.org/ecma-262/5.1/#sec-C)
 
 ## Articles
 
@@ -85,6 +84,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [Loupe - Site interativo para entender callstack, event loop, APIs e callback queue](http://latentflip.com/loupe)
 - [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [Holding on to your Performance Promises - Maya Lekova and Benedikt Meurer](https://www.youtube.com/watch?v=DFP5DKDQfOc&)
+- [The Strict Mode of ECMAScript](http://www.ecma-international.org/ecma-262/5.1/#sec-C)
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)
 
 ## Cursos, Talks, Playlists, etc
