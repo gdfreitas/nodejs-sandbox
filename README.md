@@ -54,32 +54,43 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 
 ## Community Modules
 
-- [nodemon](https://github.com/remy/nodemon#nodemon) utilitário para monitorar alterações em arquivos e reiniciar servidores automaticamente
-- [Express](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
-- `express-validator` middleware para validações de parâmetros em requests
-- `express-session` middleware para criação e controle de sessions utilizando cookies
-- `body-parser` middleware para fazer o parse do body das requests
-- [Async](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
-- [EJS](http://ejs.co/) `<% Embedded Javascript %>`: linguagem de templating para gerar HTMLs com javascript.
-- [pug](https://pugjs.org/api/reference.html) template engine
-- `consign` utilitário usado para carregar automaticamente todos os templates de um determinado diretório
+- [`nodemon`](https://github.com/remy/nodemon#nodemon) utilitário para monitorar alterações em arquivos e reiniciar servidores automaticamente
+- [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
+  - `express-validator` middleware para validações de parâmetros em requests
+  - `express-session` middleware para criação e controle de sessions utilizando cookies
+  - `body-parser` middleware para fazer o parse do body das requests
+- [`async`](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
+- [`consign`](https://www.npmjs.com/package/consign) utilitário usado para requerir automaticamente todos os arquivos de um determinado diretório
 - `mongodb` base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
-- TODO...
 
-## Referências
+### Templating Engines
+
+- [`EJS`](http://ejs.co/) permite construção de templates dinâmicos com uma sintáxe própria.
+- [`handlebars`](https://handlebarsjs.com/) permite construção de HTMLs com expressões customizadas, sintáxe de expressões parecida com a do Angular.js 1.x.
+- [`pug`](https://pugjs.org/api/reference.html) permite construção de HTMLs minimalistas, sem tags de fechamentos, com identação estilo `.yaml` para definir blocos de tags.
+
+## Docs & References
 
 - [Official Node.js Guides](https://nodejs.org/en/docs/guides/)
 - [Official Node.js Documentations](https://nodejs.org/dist/latest/docs/api/)
+- [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
+- [Node.js @ GitHub](https://github.com/nodejs/node)
+- [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- [The Strict Mode of ECMAScript](http://www.ecma-international.org/ecma-262/5.1/#sec-C)
+
+## Articles
+
 - [Node.js - Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [Node.js - Blocking Code & Non-Blocking Code](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
-- [Node.js @ GitHub](https://github.com/nodejs/node)
-- [Node.js @ Rodrigo Branas](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 - [Loupe - Site interativo para entender callstack, event loop, APIs e callback queue](http://latentflip.com/loupe)
 - [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-- [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 - [Holding on to your Performance Promises - Maya Lekova and Benedikt Meurer](https://www.youtube.com/watch?v=DFP5DKDQfOc&)
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)
+
+## Cursos, Talks, Playlists, etc
+
+- [Curso Desenvolvedor Node.js - Jorge Sant Ana @ Udemy](https://www.udemy.com/curso-completo-do-desenvolvedor-nodejs)
+- [NodeJS - The Complete Guide - Maximilian Schwarzmuller @ Udemy](https://www.udemy.com/nodejs-the-complete-guide/)
+- [Advanced Node.js for Developers - Stephen Grider @ Udemy](https://www.udemy.com/advanced-node-for-developers)
+- [Node.js Playlist - Rodrigo Branas @ Youtube](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 - [Pagar.me - Talks @ Youtube](https://www.youtube.com/channel/UCNhSCufrcOMeFvzEM7tt9Lw)
-- [Curso Desenvolvedor Node.js @ Udemy](https://www.udemy.com/curso-completo-do-desenvolvedor-nodejs)
-- [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
-- [The Strict Mode of ECMAScript](http://www.ecma-international.org/ecma-262/5.1/#sec-C)
