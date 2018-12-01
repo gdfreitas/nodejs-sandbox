@@ -1,4 +1,4 @@
-const Product = require('../models/product')
+const Product = require('../models/Product')
 
 exports.getIndex = (req, res, next) => {
     Product.fetchAll((products) => {
