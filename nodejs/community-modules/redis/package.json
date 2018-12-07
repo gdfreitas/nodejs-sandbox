@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3",
+    "redis": "^2.8.0"
+  }
+}
