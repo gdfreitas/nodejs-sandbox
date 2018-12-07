@@ -81,4 +81,3 @@ INSERT INTO ingredient VALUES
   (2, 4, 0.5, 'tsp'), (2, 11, 1, 'tbsp'), (2, 14, 2, 'tbsp'),
   (2, 10, 3, 'whole'), (2, 8, 1, 'whole'), (2, 15, 0.5, 'inch stick');
 ```
-

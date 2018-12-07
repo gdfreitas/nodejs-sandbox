@@ -59,6 +59,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
   - `express-validator` middleware para validações de parâmetros em requests
   - `express-session` middleware para criação e controle de sessions utilizando cookies
   - `body-parser` middleware para fazer o parse do body das requests
+- [`Sequelize`](http://docs.sequelizejs.com/) promise-based object-relational mapping (ORM) c/ suporte para PostgreSQL, MySQL, etc, suporta inúmeras características de bancos relacionais.
+- [`Knex.js`](https://knexjs.org/) é um utilitário para criação de queries para Postgres, MySQL, Oracle, etc, com o objetivo de ser flexível, portável e fácil, suporta inúmeras características de bancos relacionais.
 - [`async`](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
 - [`consign`](https://www.npmjs.com/package/consign) utilitário usado para requerir automaticamente todos os arquivos de um determinado diretório
 - `mongodb` base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
