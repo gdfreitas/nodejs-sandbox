@@ -1,5 +1,3 @@
-const { MONGODB_URI } = require('./.env')
-
 const path = require('path');
 
 const express = require('express');
@@ -11,8 +9,9 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 
 const User = require('./models/User')
-
 const ErrorController = require('./controllers/ErrorController');
+
+const { MONGODB_URI } = require('./.env')
 
 const app = express();
 const store = new MongoDBStore({
