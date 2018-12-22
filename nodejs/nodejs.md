@@ -55,16 +55,20 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 ## Community Modules
 
 - [`nodemon`](https://github.com/remy/nodemon#nodemon) utilitário para monitorar alterações em arquivos e reiniciar servidores automaticamente
+- [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
-  - `express-validator` middleware para validações de parâmetros em requests
+  - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
   - `express-session` middleware para criação e controle de sessions utilizando cookies
   - `body-parser` middleware para fazer o parse do body das requests
+- [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em javascript (é dependência do express-validator)
+- [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
 - [`Sequelize`](http://docs.sequelizejs.com/) promise-based object-relational mapping (ORM) c/ suporte para PostgreSQL, MySQL, etc, suporta inúmeras características de bancos relacionais.
 - [`Mongoose`](https://mongoosejs.com/docs/index.html) MongoDB object modeling, com suporte à validação, queries, hooks, etc.
 - [`Knex.js`](https://knexjs.org/) é um utilitário para criação de queries para Postgres, MySQL, Oracle, etc, com o objetivo de ser flexível, portável e fácil, suporta inúmeras características de bancos relacionais.
 - [`async`](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
 - [`consign`](https://www.npmjs.com/package/consign) utilitário usado para requerir automaticamente todos os arquivos de um determinado diretório
-- `mongodb` base de dados NoSQL, alta performance, sem esquemas e orientado à documentos
+- [`connect-flash`](https://github.com/jaredhanson/connect-flash) utilitário para troca de mensagens através de cookies em requests.
+- [`connect-mongodb-session`](https://github.com/mongodb-js/connect-mongodb-session) utilitário para armazenamento de sessões no MongoDB com o módulo Express.
 
 ### Templating Engines
 
