@@ -58,7 +58,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
-  - `express-session` middleware para criação e controle de sessions utilizando cookies
+  - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
   - `body-parser` middleware para fazer o parse do body das requests
 - [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em javascript (é dependência do express-validator)
 - [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
@@ -69,6 +69,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`consign`](https://www.npmjs.com/package/consign) utilitário usado para requerir automaticamente todos os arquivos de um determinado diretório
 - [`connect-flash`](https://github.com/jaredhanson/connect-flash) utilitário para troca de mensagens através de cookies em requests.
 - [`connect-mongodb-session`](https://github.com/mongodb-js/connect-mongodb-session) utilitário para armazenamento de sessões no MongoDB com o módulo Express.
+- [`bcrypt.js`](https://github.com/dcodeIO/bcrypt.js/blob/master/README.md) documentação oficial do bcrypt.js
 
 ### Templating Engines
 
@@ -79,10 +80,15 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 ## Docs & References
 
 - [Official Node.js Guides](https://nodejs.org/en/docs/guides/)
-- [Official Node.js Documentations](https://nodejs.org/dist/latest/docs/api/)
+- [Official Node.js Documentation](https://nodejs.org/dist/latest/docs/api/)
+- [Official MongoDB Documentation](https://docs.mongodb.com/manual/)
 - [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
+- [MongoDB - Atlas](https://docs.atlas.mongodb.com/connect-to-cluster/)
 - [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+- [What is a session in a Web Application?](https://www.quora.com/What-is-a-session-in-a-Web-Application)
+- [SendGrid - Mailer](https://sendgrid.com/docs/)
 - [Error Handling with Express](https://expressjs.com/en/guide/error-handling.html)
 
 ## Articles
@@ -95,6 +101,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [Holding on to your Performance Promises - Maya Lekova and Benedikt Meurer](https://www.youtube.com/watch?v=DFP5DKDQfOc&)
 - [The Strict Mode of ECMAScript](http://www.ecma-international.org/ecma-262/5.1/#sec-C)
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)
+- [CSRF Attacks, XSRF or Sea-Surf](https://www.acunetix.com/websitesecurity/csrf-attacks/)
 
 ## Cursos, Talks, Playlists, etc
 
@@ -103,3 +110,5 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [Advanced Node.js for Developers - Stephen Grider @ Udemy](https://www.udemy.com/advanced-node-for-developers)
 - [Node.js Playlist - Rodrigo Branas @ Youtube](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 - [Pagar.me - Talks @ Youtube](https://www.youtube.com/channel/UCNhSCufrcOMeFvzEM7tt9Lw)
+- [SQL vs NoSQL @ Academind](https://academind.com/learn/web-dev/sql-vs-nosql/)
+- [MongoDB Learn More @ Academind](https://academind.com/learn/mongodb)
