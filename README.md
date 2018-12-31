@@ -83,6 +83,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
 - [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- [Error Handling with Express](https://expressjs.com/en/guide/error-handling.html)
 
 ## Articles
 
