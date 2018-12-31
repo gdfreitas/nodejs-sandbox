@@ -1,4 +1,4 @@
-# Http Response Codes
+# HTTP Status Codes
 
 1×× Informational
 100 Continue
