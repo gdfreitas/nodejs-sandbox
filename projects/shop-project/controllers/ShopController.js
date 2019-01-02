@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path')
+
 const Product = require('../models/Product');
 const Order = require('../models/Order');
 
@@ -142,3 +145,48 @@ exports.getOrders = (req, res, next) => {
         });
 };
 
+exports.getInvoice = (req, res, next) => {
+    const { orderId } = req.params;
+
+    Order.findById(orderId)
+        .then(order => {
+            if (!order) {
+                return next(new Error('No order found.'))
+            }
+
+            if (order.user.userId.toString() !== req.user._id.toString()) {
+                return next(new Error('Unauthorized!'))
+            }
+
+            const invoiceName = `invoice-${orderId}.pdf`
+            const invoicePath = path.join('data', 'invoices', invoiceName)
+
+            // Pre-loading data and sending as a response
+            // Cons: can take too much memory of server
+            /* fs.readFile(invoicePath, (err, data) => {
+                if (err) {
+                    return next(err)
+                }
+
+                res.setHeader('Content-Type', 'application/pdf')
+
+                // Define modo de visualização do documento em .pdf a partir do browser. 
+                res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`)
+
+                // Define modo download diretamente
+                // res.setHeader('Content-Disposition', `attachment; filename="${invoiceName}"`)
+                res.send(data);
+            }) */
+
+            // Streaming data in chunks as response content
+            const file = fs.createReadStream(invoicePath)
+            res.setHeader('Content-Type', 'application/pdf')
+            // Define modo de visualização do documento em .pdf a partir do browser. 
+            res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`)
+            // Define modo download diretamente
+            // res.setHeader('Content-Disposition', `attachment; filename="${invoiceName}"`)
+            file.pipe(res)
+
+        })
+        .catch(err => next(err))
+}

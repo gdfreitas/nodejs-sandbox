@@ -18,4 +18,6 @@ router.post('/cart-delete-item', isAuthenticated, ShopController.postCartDeleteP
 router.post('/create-order', isAuthenticated, ShopController.postOrder);
 router.get('/orders', isAuthenticated, ShopController.getOrders);
 
+router.get('/orders/:orderId', isAuthenticated, ShopController.getInvoice)
+
 module.exports = router;
