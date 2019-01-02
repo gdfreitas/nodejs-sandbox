@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path')
 
+const PDFDocument = require('pdfkit')
+
 const Product = require('../models/Product');
 const Order = require('../models/Order');
 
@@ -161,6 +163,28 @@ exports.getInvoice = (req, res, next) => {
             const invoiceName = `invoice-${orderId}.pdf`
             const invoicePath = path.join('data', 'invoices', invoiceName)
 
+            const pdfDoc = new PDFDocument();
+
+            res.setHeader('Content-Type', 'application/pdf')
+            res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`)
+
+            pdfDoc.pipe(fs.createWriteStream(invoicePath));
+            pdfDoc.pipe(res);
+
+            pdfDoc.fontSize(26).text('Invoice'/*, { underline: true }*/);
+            pdfDoc.fontSize(14).text('---------------------')
+
+            let totalPrice = 0;
+            order.products.forEach(product => {
+                totalPrice += product.quantity * product.product.price;
+                pdfDoc.text(`${product.product.title} - ${product.quantity} x $ ${product.product.price}`)
+            })
+
+            pdfDoc.text('---------------------')
+
+            pdfDoc.fontSize(20).text(`Total: $ ${totalPrice}`)
+
+            pdfDoc.end();
             // Pre-loading data and sending as a response
             // Cons: can take too much memory of server
             /* fs.readFile(invoicePath, (err, data) => {
@@ -180,12 +204,12 @@ exports.getInvoice = (req, res, next) => {
 
             // Streaming data in chunks as response content
             const file = fs.createReadStream(invoicePath)
-            res.setHeader('Content-Type', 'application/pdf')
+            // res.setHeader('Content-Type', 'application/pdf')
             // Define modo de visualização do documento em .pdf a partir do browser. 
-            res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`)
+            // res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`)
             // Define modo download diretamente
             // res.setHeader('Content-Disposition', `attachment; filename="${invoiceName}"`)
-            file.pipe(res)
+            // file.pipe(res)
 
         })
         .catch(err => next(err))
