@@ -1,7 +1,7 @@
 const express = require('express');
 const { body } = require('express-validator/check')
 
-const AdminController = require('../controllers/AdminController');
+const AdminController = require('../controllers/admin');
 
 const isAuthenticated = require('../middlewares/is-authenticated');
 

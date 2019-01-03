@@ -1,6 +1,6 @@
 const express = require('express');
 
-const ShopController = require('../controllers/ShopController');
+const ShopController = require('../controllers/shop');
 
 const isAuthenticated = require('../middlewares/is-authenticated');
 

@@ -10,7 +10,7 @@ const flash = require('connect-flash');
 const multer = require('multer')
 
 const User = require('./models/User')
-const ErrorController = require('./controllers/ErrorController');
+const ErrorController = require('./controllers/error');
 
 const { MONGODB_URI } = require('./.env')
 
@@ -41,9 +41,9 @@ const fileFilter = (req, file, cb) => {
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const AdminRoutes = require('./routes/AdminRoutes');
-const ShopRoutes = require('./routes/ShopRoutes');
-const AuthRoutes = require('./routes/AuthRoutes');
+const AdminRoutes = require('./routes/admin');
+const ShopRoutes = require('./routes/shop');
+const AuthRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ storage: fileStorage, fileFilter }).single('image'))

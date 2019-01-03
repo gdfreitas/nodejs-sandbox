@@ -1,14 +1,14 @@
 const express = require('express');
 const { check, body } = require('express-validator/check')
 
-const authController = require('../controllers/AuthController');
+const AuthController = require('../controllers/auth');
 const User = require('../models/User')
 
 const router = express.Router();
 
-router.get('/login', authController.getLogin);
+router.get('/login', AuthController.getLogin);
 
-router.get('/signup', authController.getSignup);
+router.get('/signup', AuthController.getSignup);
 
 router.post('/login', [
     body('email')
@@ -19,7 +19,7 @@ router.post('/login', [
         .isLength({ min: 5, max: 100 })
         .isAlphanumeric()
         .trim()
-], authController.postLogin);
+], AuthController.postLogin);
 
 router.post('/signup', [
     check('email')
@@ -50,16 +50,16 @@ router.post('/signup', [
             }
             return true;
         })
-], authController.postSignup);
+], AuthController.postSignup);
 
-router.post('/logout', authController.postLogout);
+router.post('/logout', AuthController.postLogout);
 
-router.get('/reset', authController.getReset);
+router.get('/reset', AuthController.getReset);
 
-router.post('/reset', authController.postReset);
+router.post('/reset', AuthController.postReset);
 
-router.get('/reset/:token', authController.getNewPassword);
+router.get('/reset/:token', AuthController.getNewPassword);
 
-router.post('/new-password', authController.postNewPassowrd);
+router.post('/new-password', AuthController.postNewPassowrd);
 
 module.exports = router;
