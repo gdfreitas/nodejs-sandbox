@@ -105,6 +105,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)
 - [CSRF Attacks, XSRF or Sea-Surf](https://www.acunetix.com/websitesecurity/csrf-attacks/)
 - [Node.js Streams - Everything you need to know](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
+- [MySQL Data - Best way to implement pagination](https://stackoverflow.com/questions/3799193/mysql-data-best-way-to-implement-paging)
+- [Sequelize - Pagination](http://docs.sequelizejs.com/manual/tutorial/querying.html#pagination-limiting)
 
 ## Cursos, Talks, Playlists, etc
 
