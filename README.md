@@ -87,6 +87,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
 - [MongoDB - Atlas](https://docs.atlas.mongodb.com/connect-to-cluster/)
+- [Official Stripe.js Docs](https://stripe.com/docs)
 - [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 - [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 - [What is a session in a Web Application?](https://www.quora.com/What-is-a-session-in-a-Web-Application)

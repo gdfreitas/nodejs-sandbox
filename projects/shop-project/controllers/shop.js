@@ -134,17 +134,52 @@ exports.postCartDeleteProduct = (req, res, next) => {
         });
 };
 
-exports.postOrder = (req, res, next) => {
+exports.getCheckout = (req, res, next) => {
     req.user
         .populate('cart.items.productId')
         .execPopulate()
         .then(user => {
+            const products = user.cart.items;
+            res.render('shop/checkout', {
+                path: '/checkout',
+                pageTitle: 'Checkout',
+                products: products,
+                totalSum: products
+                    .reduce((total, prod) => {
+                        return total + (prod.quantity * prod.productId.price);
+                    }, 0),
+            });
+        })
+        .catch(err => {
+            const error = new Error(err);
+            error.httpStatusCode = 500;
+            return next(error);
+        });
+}
+
+exports.postOrder = (req, res, next) => {
+    const stripe = require('stripe')('sk_test_hjLLiLMmEU4HCqA64UCRKzoo');
+    const token = req.body.stripeToken;
+
+    let totalAmount = 0;
+
+    req.user
+        .populate('cart.items.productId')
+        .execPopulate()
+        .then(user => {
+
+            totalAmount = user.cart.items
+                .reduce((total, prod) => {
+                    return total + (prod.quantity * prod.productId.price);
+                }, 0);
+
             const products = user.cart.items.map(item => {
                 return {
                     quantity: item.quantity,
                     product: { ...item.productId._doc }
                 }
             });
+
             const order = new Order({
                 user: {
                     email: req.user.email,
@@ -152,9 +187,20 @@ exports.postOrder = (req, res, next) => {
                 },
                 products: products
             })
+
             return order.save()
         })
-        .then(result => req.user.clearCart())
+        .then(result => {
+            const charge = stripe.charges.create({
+                amount: totalAmount * 100,
+                currency: 'usd',
+                description: 'Demo Order',
+                source: token,
+                metadata: { order_id: result._id.toString() }
+            });
+
+            return req.user.clearCart()
+        })
         .then(() => res.redirect('/orders'))
         .catch(err => {
             const error = new Error(err);

@@ -11,6 +11,8 @@ const multer = require('multer')
 
 const User = require('./models/User')
 const ErrorController = require('./controllers/error');
+const ShopController = require('./controllers/shop');
+const isAuthenticated = require('./middlewares/is-authenticated');
 
 const { MONGODB_URI } = require('./.env')
 
@@ -58,12 +60,11 @@ app.use(
         store: store
     })
 );
-app.use(csrfProtection);
+
 app.use(flash());
 
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
-    res.locals.csrfToken = req.csrfToken();
     next();
 });
 
@@ -85,6 +86,14 @@ app.use((req, res, next) => {
         });
 });
 
+app.post('/create-order', isAuthenticated, ShopController.postOrder);
+
+app.use(csrfProtection);
+app.use((req, res, next) => {
+    res.locals.csrfToken = req.csrfToken();
+    next();
+});
+
 app.use('/admin', AdminRoutes);
 app.use(ShopRoutes);
 app.use(AuthRoutes)
@@ -97,6 +106,9 @@ app.use(ErrorController.get404);
 app.use((error, req, res, next) => {
     // res.status(error.httpStatusCode).render(...);
     // res.redirect('/500');
+
+    console.error(error)
+
     res.status(500).render('500', {
         pageTitle: 'Error!',
         path: '/500',
