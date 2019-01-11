@@ -154,23 +154,29 @@ exports.getProducts = (req, res, next) => {
         });
 };
 
-exports.postDeleteProduct = (req, res, next) => {
+exports.deleteProduct = (req, res, next) => {
 
-    Product.findById(req.body.productId).then(product => {
-        if (!product) {
-            return next(new Error('Product not found'))
-        }
+    Product.findById(req.params.productId)
+        .then(product => {
+            if (!product) {
+                return next(new Error('Product not found'))
+            }
 
-        fileHelper.deleteFile(product.imageUrl); // fire and forget manner!
-        return Product.deleteOne({ _id: req.body.productId, userId: req.user._id })
-    })
+            console.log(product)
+
+            try {
+                fileHelper.deleteFile(product.imageUrl); // fire and forget manner!
+            } catch (imgErr) {
+                console.error(imgErr)
+            }
+
+            return Product.deleteOne({ _id: req.body.productId, userId: req.user._id })
+        })
         .then(() => {
-            res.redirect('/admin/products');
+            res.status(200).json({ message: 'sucessfuly deleted product' });
         })
         .catch(err => {
-            const error = new Error(err);
-            error.httpStatusCode = 500;
-            return next(error);
+            res.status(500).json({ message: err });
         });
 
 };

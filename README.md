@@ -92,6 +92,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [What is a session in a Web Application?](https://www.quora.com/What-is-a-session-in-a-Web-Application)
 - [SendGrid - Mailer](https://sendgrid.com/docs/)
 - [Error Handling with Express](https://expressjs.com/en/guide/error-handling.html)
+- [Json](https://www.json.org/)
 
 ## Articles
 
@@ -107,6 +108,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [Node.js Streams - Everything you need to know](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
 - [MySQL Data - Best way to implement pagination](https://stackoverflow.com/questions/3799193/mysql-data-best-way-to-implement-paging)
 - [Sequelize - Pagination](http://docs.sequelizejs.com/manual/tutorial/querying.html#pagination-limiting)
+- [AJAX - Getting started](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
+- [Introduction to _fetch()_](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 
 ## Cursos, Talks, Playlists, etc
 
