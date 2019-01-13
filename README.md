@@ -71,7 +71,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`connect-mongodb-session`](https://github.com/mongodb-js/connect-mongodb-session) utilitário para armazenamento de sessões no MongoDB com o módulo Express.
 - [`bcrypt.js`](https://github.com/dcodeIO/bcrypt.js/blob/master/README.md) documentação oficial do bcrypt.js
 - [`Multer`](https://github.com/expressjs/multer) middleware para express para lidar com _multipart/form-data_ que é utilizado principalmente para upload de arquivos.
-- ['PDFKit](http://pdfkit.org/) ferramenta para criação de PDFs dentro do Node.js
+- [`PDFKit`](http://pdfkit.org/) ferramenta para criação de PDFs dentro do Node.js
+- [`https://github.com/expressjs/morgan`] http request logger middleware
 
 ### Templating Engines
 
