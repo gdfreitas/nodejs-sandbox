@@ -15,6 +15,7 @@ const ShopController = require('./controllers/shop');
 const isAuthenticated = require('./middlewares/is-authenticated');
 
 const { MONGODB_URI } = require('./.env')
+const SERVER_PORT = process.env.PORT || 80;
 
 const app = express();
 const store = new MongoDBStore({
@@ -119,7 +120,7 @@ app.use((error, req, res, next) => {
 mongoose
     .connect(`${MONGODB_URI}`, { useNewUrlParser: true })
     .then(result => {
-        app.listen(process.env.PORT || 80)
+        app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`))
     })
     .catch(console.error);
 
