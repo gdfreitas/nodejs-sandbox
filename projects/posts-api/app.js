@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const uuidv4 = require('uuid/v4');
 
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
@@ -13,11 +14,11 @@ const { MONGODB_URI, SERVER_PORT } = require('./.env')
 const app = express();
 
 const fileStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
+    destination: function (req, file, cb) {
         cb(null, 'images');
     },
-    filename: (req, file, cb) => {
-        cb(null, new Date().toISOString() + '-' + file.originalname);
+    filename: function (req, file, cb) {
+        cb(null, uuidv4())
     }
 });
 
