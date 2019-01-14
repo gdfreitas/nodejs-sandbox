@@ -118,7 +118,7 @@ app.use((error, req, res, next) => {
 })
 
 mongoose
-    .connect(`${MONGODB_URI}`, { useNewUrlParser: true })
+    .connect(MONGODB_URI, { useNewUrlParser: true })
     .then(result => {
         app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`))
     })
