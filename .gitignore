@@ -1,3 +1,6 @@
+# ide
+.vscode
+
 # arquivos estáticos do projeto para testes
 jquery-2.2.1.js
 
@@ -67,3 +70,5 @@ typings/
 *.png
 *.pdf
 
+# images folder
+images/
