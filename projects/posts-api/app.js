@@ -60,6 +60,11 @@ app.use((error, req, res, next) => {
 mongoose
     .connect(MONGODB_URI, { useNewUrlParser: true })
     .then(result => {
-        app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`));
+        const server = app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`));
+
+        const io = require('./config/socket').init(server)
+        io.on('connection', socket => {
+            console.log('client connected')
+        });
     })
     .catch(err => console.log(err));

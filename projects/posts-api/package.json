@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.2",
     "multer": "^1.4.0",
+    "npm": "^6.6.0",
+    "socket.io": "^2.2.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
