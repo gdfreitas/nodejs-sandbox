@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 
-const { STRIPE_KEY } = require('./.env')
+const { STRIPE_KEY } = require('../.env')
 
 const stripe = require('stripe')(STRIPE_KEY);
 const PDFDocument = require('pdfkit')
