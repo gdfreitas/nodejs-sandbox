@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path')
 
+const { STRIPE_KEY } = require('./.env')
+
+const stripe = require('stripe')(STRIPE_KEY);
 const PDFDocument = require('pdfkit')
 
 const Product = require('../models/Product');
@@ -158,7 +161,6 @@ exports.getCheckout = (req, res, next) => {
 }
 
 exports.postOrder = (req, res, next) => {
-    const stripe = require('stripe')('sk_test_hjLLiLMmEU4HCqA64UCRKzoo');
     const token = req.body.stripeToken;
 
     let totalAmount = 0;

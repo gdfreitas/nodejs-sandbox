@@ -9,7 +9,7 @@ const uuidv4 = require('uuid/v4');
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
 
-const { MONGODB_URI, SERVER_PORT } = require('./.env')
+const { MONGODB_URI, PORT } = require('./.env')
 
 const app = express();
 
@@ -60,7 +60,7 @@ app.use((error, req, res, next) => {
 mongoose
     .connect(MONGODB_URI, { useNewUrlParser: true })
     .then(result => {
-        const server = app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`));
+        const server = app.listen(PORT || 3000, () => console.log(`Server listening on ${PORT || 3000}`));
 
         const io = require('./config/socket').init(server)
         io.on('connection', socket => {
