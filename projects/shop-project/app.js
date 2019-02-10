@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,7 +9,9 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer')
-const helmet = require('helmet')
+const helmet = require('helmet');
+const compression = require('compression')
+const morgan = require('morgan');
 
 const User = require('./models/User')
 const ErrorController = require('./controllers/error');
@@ -49,7 +52,15 @@ const AdminRoutes = require('./routes/admin');
 const ShopRoutes = require('./routes/shop');
 const AuthRoutes = require('./routes/auth');
 
+// adiciona alguns http-headers conhecidos para evitar attacks
 app.use(helmet());
+
+// compression assets middleware (utilizar em caso a estrutura que a aplicação roda não suporte isto on the fly)
+app.use(compression());
+
+// request logging
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+app.use(morgan('combined', { stream: accessLogStream }))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ storage: fileStorage, fileFilter }).single('image'))

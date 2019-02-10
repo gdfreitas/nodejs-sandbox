@@ -75,6 +75,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`Morgan`](https://github.com/expressjs/morgan) http request logger middleware.
 - [`socket.io`](https://socket.io/docs/) biblioteca que permite comunicação realtime utilizando websockets.
 - [`express-ws](https://www.npmjs.com/package/express-ws) websockets para aplicações com servidor http com express.
+- [`helmet`](https://github.com/helmetjs/helmet) middleware p/ express que adiciona varios http headers para previnir alguns attacks conhecidos;
+- [`compression`](https://github.com/expressjs/compression) middleware para express para habilitar compression (gzip/deflate) de recursos;
 
 ### Templating Engines
 
@@ -114,6 +116,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [Sequelize - Pagination](http://docs.sequelizejs.com/manual/tutorial/querying.html#pagination-limiting)
 - [AJAX - Getting started](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
 - [Introduction to _fetch()_](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
+- [Node.js Detailed Approach Logging](https://blog.risingstack.com/node-js-logging-tutorial/)
 
 ## Cursos, Talks, Playlists, etc
 
