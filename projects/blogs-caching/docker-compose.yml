@@ -1,0 +1,4 @@
+version: '3'
+services:
+  db: 
+    image: mongo:3.4
