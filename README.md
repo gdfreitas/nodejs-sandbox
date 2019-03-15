@@ -77,6 +77,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`express-ws](https://www.npmjs.com/package/express-ws) websockets para aplicações com servidor http com express.
 - [`helmet`](https://github.com/helmetjs/helmet) middleware p/ express que adiciona varios http headers para previnir alguns attacks conhecidos;
 - [`compression`](https://github.com/expressjs/compression) middleware para express para habilitar compression (gzip/deflate) de recursos;
+- [`mocha`](https://mochajs.org/) framework para nodejs e browser para implementaçõa de testes unitários;
+- [`chai`](https://www.chaijs.com/) biblioteca de asserção para nodejs e browser;
 
 ### Templating Engines
 
