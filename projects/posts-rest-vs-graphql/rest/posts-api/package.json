@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "mocha",
     "start": "node app.js",
     "server": "nodemon app.js"
   },
@@ -16,9 +17,11 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
     "express": "^4.16.3",
     "express-validator": "^5.3.0",
     "jsonwebtoken": "^8.3.0",
+    "mocha": "^6.0.2",
     "mongoose": "^5.3.2",
     "multer": "^1.4.0",
     "npm": "^6.6.0",
