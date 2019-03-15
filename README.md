@@ -79,6 +79,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`compression`](https://github.com/expressjs/compression) middleware para express para habilitar compression (gzip/deflate) de recursos;
 - [`mocha`](https://mochajs.org/) framework para nodejs e browser para implementaçõa de testes unitários;
 - [`chai`](https://www.chaijs.com/) biblioteca de asserção para nodejs e browser;
+- [`Sinon.JS`](https://sinonjs.org/) biblioteca para mocks, stubs, spies em testes;
 
 ### Templating Engines
 
