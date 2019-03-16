@@ -1,0 +1,9 @@
+{
+  "App": {
+    "database": {
+      "url": "DATABASE_URL",
+      "port": "DATABASE_PORT",
+      "collectionName": "DATABASE_COLLECTION_NAME"
+    }
+  }
+}

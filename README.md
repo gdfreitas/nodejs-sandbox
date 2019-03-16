@@ -80,6 +80,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`mocha`](https://mochajs.org/) framework para nodejs e browser para implementaçõa de testes unitários;
 - [`chai`](https://www.chaijs.com/) biblioteca de asserção para nodejs e browser;
 - [`Sinon.JS`](https://sinonjs.org/) biblioteca para mocks, stubs, spies em testes;
+- [`node-config`](https://github.com/lorenwest/node-config) permite facilmente configurar parâmetros de deployments por environment (development, staging, production, etc)
+- [`dovenv`](https://github.com/motdotla/dotenv) permite carregar environment variables através de um arquivo `.env` para o `process.env`
 
 ### Templating Engines
 
