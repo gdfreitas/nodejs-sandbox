@@ -75,3 +75,6 @@ images/
 
 # tesseract data files
 *.traineddata
+
+# .sandbox
+.sandbox

@@ -53,6 +53,19 @@ Source: _2015, comScore Mobile_
 |Traditional Web Apps|Highly Limited Device Feature Access|High Reach, No Borders|
 |Progressive Web Apps|**Access Device Features, Leverage OS**|**High Reach, No Borders**|
 
+## Core Building Blocks
+
+### Service Workers
+
+- Caching/Offline support;
+- Enable other PWA features;
+- Web Push: mobile-like push notifications;
+- Background Synchronization: sync user data in background;
+- Application manifest: allow addition to homescreen;
+- Responsive design: app/layout should work and look good across devices;
+- Geolocation API: access user location;
+- Media API: access device camera and microphone;
+
 ## References
 
 Most of Statistics: _2015, comScore Mobile Metrix_  
