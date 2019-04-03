@@ -1,2 +1,3 @@
-const a: number = 2;
-console.log(a)
+import app from './app'
+
+app.listen(3000)
