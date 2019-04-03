@@ -4,7 +4,8 @@
   "description": "Nodemon Sandbox",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Gabriel Freitas",
   "license": "ISC",

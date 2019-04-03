@@ -54,7 +54,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 
 ## Community Modules
 
-- [`nodemon`](https://github.com/remy/nodemon#nodemon) utilitário para monitorar alterações em arquivos e reiniciar servidores automaticamente
+- [`nodemon`](https://github.com/remy/nodemon#nodemon) ferramenta de restart de processos em caso de alterações de arquivos
 - [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
