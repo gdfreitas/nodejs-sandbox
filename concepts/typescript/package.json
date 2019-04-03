@@ -1,0 +1,17 @@
+{
+  "name": "typescript-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "sucrase ./src -d ./dist --transforms typescript,imports"
+  },
+  "author": "gabriel.freitas",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "sucrase": "^3.10.1",
+    "typescript": "^3.4.1"
+  }
+}

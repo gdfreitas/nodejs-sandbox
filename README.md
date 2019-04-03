@@ -1,6 +1,6 @@
 # nodejs-sandbox
 
-Repositório destinado à reunir/aplicar conceitos, documentar e ou referênciar qualquer conteúdo relacionado à Node.js e Javascript;
+Repositório destinado à reunir/aplicar conceitos, documentar e ou referênciar qualquer conteúdo relacionado à Node.js e JavaScript;
 
 ## O que é Node.js
 
@@ -10,7 +10,7 @@ Plataforma de código aberto para a execução de JavaScript.
 
 ## Características
 
-**Javascript Runtime**:
+**JavaScript Runtime**:
 
 - **Single Threaded**: o programa só "executa uma operação por vez" _(não é bem assim)_, contrário de multithreaded que consegue realizar múltiplas operações no mesmo instante de tempo.
 - **Non-blocking**: o contexto de execução não é bloqueado por tarefas assícronas, seja I/O (acesso à disco e rede) ou por APIs como o timeout
@@ -43,7 +43,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 
 **REPL ou Read-Eval-Print-Loop**: forma de escrever e validar códigos através da linha de comando, é basicamente um "console interativo", comportamento semelhante ao console do navegador Chrome, onde pode-se criar variáveis, funções, e validá-las em linhas posteriores.
 
-**CommonJS**: específicação de sistema de módulos para javascript, utilizada pelo node. [Docs](http://wiki.commonjs.org/wiki/CommonJS)
+**CommonJS**: específicação de sistema de módulos para JavaScript, utilizada pelo node. [Docs](http://wiki.commonjs.org/wiki/CommonJS)
 
 ## Core Modules
 
@@ -60,12 +60,11 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
   - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
   - `body-parser` middleware para fazer o parse do body das requests
-- [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em javascript (é dependência do express-validator)
-- [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
+- [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em JavaScript (é dependência do express-validator) - [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
 - [`Sequelize`](http://docs.sequelizejs.com/) promise-based object-relational mapping (ORM) c/ suporte para PostgreSQL, MySQL, etc, suporta inúmeras características de bancos relacionais.
 - [`Mongoose`](https://mongoosejs.com/docs/index.html) MongoDB object modeling, com suporte à validação, queries, hooks, etc.
 - [`Knex.js`](https://knexjs.org/) é um utilitário para criação de queries para Postgres, MySQL, Oracle, etc, com o objetivo de ser flexível, portável e fácil, suporta inúmeras características de bancos relacionais.
-- [`async`](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com javascript.
+- [`async`](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com JavaScript.
 - [`consign`](https://www.npmjs.com/package/consign) utilitário usado para requerir automaticamente todos os arquivos de um determinado diretório
 - [`connect-flash`](https://github.com/jaredhanson/connect-flash) utilitário para troca de mensagens através de cookies em requests.
 - [`connect-mongodb-session`](https://github.com/mongodb-js/connect-mongodb-session) utilitário para armazenamento de sessões no MongoDB com o módulo Express.
@@ -82,6 +81,8 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`Sinon.JS`](https://sinonjs.org/) biblioteca para mocks, stubs, spies em testes;
 - [`node-config`](https://github.com/lorenwest/node-config) permite facilmente configurar parâmetros de deployments por environment (development, staging, production, etc)
 - [`dovenv`](https://github.com/motdotla/dotenv) permite carregar environment variables através de um arquivo `.env` para o `process.env`
+- [`sucrase`](https://github.com/alangpierce/sucrase) alternativa ao Babel para compilação de TypeScript, Flow, JSX, imports -> JavaScript, muito mais veloz para ambientes de desenvolvimento.
+- [`TypeScript`](https://github.com/Microsoft/TypeScript) "superset" of JavaScript, conjunto de extra-features ao JavaScript, principalmente, tipagem estática.
 
 ### Templating Engines
 
@@ -122,6 +123,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [AJAX - Getting started](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
 - [Introduction to _fetch()_](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 - [Node.js Detailed Approach Logging](https://blog.risingstack.com/node-js-logging-tutorial/)
+- [TypeScript - Vantagens, Mitos e Conceitos @ RocketSeat](https://blog.rocketseat.com.br/typescript-vantagens-mitos-conceitos)
 
 ## Cursos, Talks, Playlists, etc
 
