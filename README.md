@@ -55,6 +55,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 ## Community Modules
 
 - [`nodemon`](https://github.com/remy/nodemon#nodemon) ferramenta de restart de processos em caso de alterações de arquivos
+- [`artillery`](https://github.com/artilleryio/artillery) ferramenta completa para testes de APIs, testes de cargas, testes funcionais, etc.
 - [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
@@ -124,6 +125,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [Introduction to _fetch()_](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 - [Node.js Detailed Approach Logging](https://blog.risingstack.com/node-js-logging-tutorial/)
 - [TypeScript - Vantagens, Mitos e Conceitos @ RocketSeat](https://blog.rocketseat.com.br/typescript-vantagens-mitos-conceitos)
+- [Node.js API Gateway vs API Manager @ Luiz Tools](https://www.luiztools.com.br/post/api-gateway-em-arquitetura-de-microservices-com-node-js/)
 
 ## Cursos, Talks, Playlists, etc
 
