@@ -1,5 +1,10 @@
 let array = [1, 2, 3, 4, 5];
 
+// for c/ múltiplos parâmetros
+for (let c = 10, j = 10; c < 13; c++ , ++j) {
+    console.log(c, j)
+}
+
 // [for-in] iterando array
 for (let index in array) {
     console.log(array[index])
