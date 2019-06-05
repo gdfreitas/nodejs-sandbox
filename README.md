@@ -57,6 +57,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 - [`nodemon`](https://github.com/remy/nodemon#nodemon) ferramenta de restart de processos em caso de alterações de arquivos
 - [`artillery`](https://github.com/artilleryio/artillery) ferramenta completa para testes de APIs, testes de cargas, testes funcionais, etc.
 - [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
+- [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken) é uma implementação da RFC-7519 (JSON Web Token) utilizada para encodar, assinar, etc estruturas de dados JSON de forma digital e segura.
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
   - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
