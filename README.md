@@ -1,6 +1,6 @@
 # nodejs-sandbox
 
-Repositório destinado à reunir/aplicar conceitos, documentar e ou referênciar qualquer conteúdo relacionado à Node.js e JavaScript;
+Repositório destinado à estudar, documentar e aplicar conceitos sobre qualquer conteúdo relacionado à Node.js e JavaScript;
 
 ## O que é Node.js
 
@@ -45,10 +45,28 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 
 **CommonJS**: específicação de sistema de módulos para JavaScript, utilizada pelo node. [Docs](http://wiki.commonjs.org/wiki/CommonJS)
 
+## Node.js Internals
+
+Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
+
+![Node.js Internals](diagrams\nodejs_internals.PNG)
+
+> **Repositório Node.js no GitHub https://github.com/nodejs/node**
+
+- _`lib/internal`_ contém todas as implementações de funções e módulos disponíveis do lado "JavaScript" do Node.js  
+- _`src`_ contém todas as implementações em C++ das funções, é onde estão alocados as implementações utilizando libuv, v8, etc.
+
+### Ponte entre JavaScript and C++
+
+- `process.binding()` é o método que conecta métodos JavaScript e C++, servindo como ponte  
+- `v8` é utilizado para traduzir as estrutura de dados do JavaScript para os equivalentes em C++
+
+![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](diagrams\nodejs_internals_linking_javascript_w_cplusplus.PNG)
+
 ## Core Modules
 
 - [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
-- [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras;
+- [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras, implementada em C++;
 - `crypto` fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.
 - TODO...
 
