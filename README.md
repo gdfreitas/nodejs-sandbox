@@ -62,7 +62,10 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
   - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
   - `body-parser` middleware para fazer o parse do body das requests
+- [`Hapi`](https://hapijs.com/api) é um framework para construção de aplicações e API's, com bastante foco na configuração e reuso.
+  - [`@hapi/joi`](https://www.npmjs.com/package/@hapi/joi) permite criação de validações
 - [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em JavaScript (é dependência do express-validator) - [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
+- [`Qs`](https://github.com/ljharb/qs) é um parser de querystring
 - [`Sequelize`](http://docs.sequelizejs.com/) promise-based object-relational mapping (ORM) c/ suporte para PostgreSQL, MySQL, etc, suporta inúmeras características de bancos relacionais.
 - [`Mongoose`](https://mongoosejs.com/docs/index.html) MongoDB object modeling, com suporte à validação, queries, hooks, etc.
 - [`Knex.js`](https://knexjs.org/) é um utilitário para criação de queries para Postgres, MySQL, Oracle, etc, com o objetivo de ser flexível, portável e fácil, suporta inúmeras características de bancos relacionais.
