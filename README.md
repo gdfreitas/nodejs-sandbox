@@ -63,6 +63,30 @@ Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 
 ![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](diagrams\nodejs_internals_linking_javascript_w_cplusplus.PNG)
 
+## Threads
+
+Quando iniciamos um programa em nosso computador, nós iniciamos algo denonimado `process`, sendo esta uma instância de um programa de computador que está sendo executado.
+
+Para cada `process` podemos ter múltiplas `threads`, que por sua vez, pode ser interpretado como uma _lista de tarefas a fazer_, contendo uma sequência de instruções que deve ser processada pela CPU do computador, começando pelo topo, indo até o fim.
+
+`OS Scheduler` é o responsável por definir qual `thread` deve ser processada pela CPU em um determinado momento do tempo, sabendo que cada CPU tem seu limite de recurso disponível, logo isso precisa ser gerênciado.
+
+Ex:
+> `process`
+>> `thread 01`
+>>> 1. Multiplicar 2 por 2
+>>> 2. Atribuir resultado em uma variável
+>>> 3. Dividir variável por 2
+>>> 4. Verificar se a variável é igual a 2
+>>> 5. ...
+
+>> `thread 02`
+>>> 1. Multiplicar 3 por 3
+>>> 2. Atribuir resultado em uma variável
+>>> 3. Dividir variável por 3
+>>> 4. Verificar se a variável é igual a 3
+>>> 5. ...
+
 ## Core Modules
 
 - [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
