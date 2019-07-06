@@ -1,35 +1,35 @@
-// Node.js Event Loop Pseudo-Code
+// node file.js >> inicia o processo do Node.js
 
-// node myFile.js
-
+// Declara 3 listas de operações pendentes que podem ser registradas
 const pendingTimers = [];
 const pendingOSTasks = [];
 const pendingOperations = [];
 
-// New timers, tasks, operations are recorded from myFile running
-myFile.runContents();
+// Todas as operações do arquivo são armazenadas antes do EventLoop iniciar
+// Ex: Agendar timers, tasks, operações
+file.runContents();
 
 function shouldContinue() {
-    // Check 1: Any pending setTimeout, setInterval, setImmediate?
-    // Check 2: Any pending OS tasks? (like server listening at some port)
-    // Check 3: Any pending long running operation? (like fs module)
-    return pendingTimers.length || pendingOSTasks.length || pendingOperations.length;
+  // Check 1: Há algum setTimeout, setInterval, setImmediate pendente?
+  // Check 2: Há alguma OS tasks pendente? (Ex: http server escutando por alguma porta)
+  // Check 3: Há alguma operação longa pendente? (Ex: "fs" - módulo filesystem)
+  return pendingTimers.length || pendingOSTasks.length || pendingOperations.length;
 }
 
-// Entire body executes in one 'tick'
+// Todo o bloco deste `while` é executado em algo chamado `tick` (instante)
 while (shouldContinue()) {
-    // 1. Node looks at pendingTimers and sees if any functions are ready to be called
+  // 1. Node verifica "pendingTimers" e executa seus respectivos callbacks
 
-    // 2. Node looks at pendingOSTasks and pendingOperations and calls relevant callbacks
+  // 2. Node verifica "pendingOSTasks" e "pendingOperations" e executa seus respectivos callbacks
 
-    // 3. Pause execution. Continue when: 
-    // > a new pendingOSTask is done
-    // > a new pendingOperation is done
-    // > a timer is about to complete
+  // 3. Node pausa sua execução. Continua quando: 
+  // > uma nova "pendingOSTask" completar
+  // > uma nova "pendingOperation" completar
+  // > um novo timer esteja por expirar (completar)
 
-    // 4. Look at pendingTimers. Call any setImmediate
+  // 4. Verifica os "pendingTimers" e executa os callbacks de "setImmediate"
 
-    // 5. Handle any 'close' events
+  // 5. Lida com eventos do tipo `close` (Ex: readStream.on('close', function callback() => {})
 }
 
-// exit back to terminal
+// shouldContinue() === false >> finaliza o processo do Node.js
