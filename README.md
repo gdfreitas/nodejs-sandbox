@@ -101,6 +101,31 @@ Toda vez que um **processo do NodeJS** é iniciado é criado automaticamente uma
 
 Um `pseudo-codigo` do **Event Loop** foi implementado à fim de entender seu funcionamento. [Visualizar](concepts\event-loop\eventloop.js).
 
+### Is Node Single Threaded?
+
+Na verdade não, o **Event Loop** é single thread, assim como visto acima, quando iniciamos um processo do Node, uma única thread é criada com o event loop, o que pode ser ruim quando possuirmos múltiplos CPU cores disponívels o Node não irá utilizá-los **automaticamente**.
+
+Algumas funções incluídas nos **Core Modules** do Node **não são single threaded!**, são executadas fora do event loop, fora da single thread do event loop.
+
+Um exemplo prático da prova deste conceito foi implementado. [Visualizar](concepts\thread\threads.js)
+
+#### Libuv Thread Pool
+
+Como no exemplo acima, a função `pbkdf2` do módulo `crypto` delega seu processamento ao `C++` do Node.js que é realizado através do `libuv`.
+
+`libuv` é responsável pela execução de algumas das funções disponíveis dentro dos **core modules** do Node.js. Possui um **thread pool** que é responsável por **CPU Intensive Tasks**, como por exemplo a `pbkdf2`.
+
+Por padrão, o `libuv` cria 4 threads neste Thread Pool, o que significa, que adicionalmente à thread o event loop, temos 4 outras threads para "descarregar" tarefas pesadas.
+
+- É possível utilizar o **thread pool** para funções que escrevemos ou somente funções padrões do Node.js podem utilizar?
+  - Resposta: Sim, é possível escrever funções JavaScript que utilizam o thread pool.
+
+- Quais funções dos **core modules** que utilizam o **thread pool**?
+  - Resposta: Depende do sistema operacional (windows vs unix), mas todas as funções do `fs` e algumas do `crypto`
+
+- Onde estão as funções que executam no threadpool naquele pseudo-código do event loop?
+  - Resposta: São consideradas como _pendingOperations_
+
 ## Core Modules
 
 - [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
