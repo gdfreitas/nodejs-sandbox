@@ -65,11 +65,11 @@ Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 
 ## Threads
 
-Quando iniciamos um programa em nosso computador, nós iniciamos algo denonimado `process`, sendo esta uma instância de um programa de computador que está sendo executado.
+Quando iniciamos um programa em nosso computador, nós iniciamos um `processo`, sendo este uma instância de um programa de computador que está sendo executado.
 
-Para cada `process` podemos ter múltiplas `threads`, que por sua vez, pode ser interpretado como uma _lista de tarefas a fazer_, contendo uma sequência de instruções que deve ser processada pela CPU do computador, começando pelo topo, indo até o fim.
+Para cada `processo` podemos ter múltiplas `threads`, que por sua vez, pode ser interpretado como uma _lista de tarefas a fazer_, contendo uma sequência de instruções que deve ser processada pela CPU do computador, começando pelo topo, indo até o fim.
 
-`OS Scheduler` é o responsável por definir qual `thread` deve ser processada pela CPU em um determinado momento do tempo, sabendo que cada CPU tem seu limite de recurso disponível, logo isso precisa ser gerênciado.
+Existe um componente responsável por definir qual `thread` deve ser processada pela CPU em um determinado momento do tempo, chamado de `OS Scheduler`, gerência os recursos disponíveis para cada dispositivo.
 
 Ex:
 > `process`
@@ -86,6 +86,14 @@ Ex:
 >>> 3. Dividir variável por 3
 >>> 4. Verificar se a variável é igual a 3
 >>> 5. ...
+
+Importante: **urgent threads** não devem esperar muito tempo para serem executadas. Ex: Thread com ação de mover o mouse na tela, travar, seria algo ruim à experiência do usuário.
+
+Existe algumas diferentes estratégias para aprimorar a taxa de processamento das threads, no mundo do NodeJS há duas que são bastante comum.
+
+1. Adicionar mais **CPU Core** à maquina, permitindo que mais threads sejam processadas ao mesmo tempo por núcleos diferentes. _(Obs: supondo que cada core, processa uma thread por vez, existem tecnologias que permitem mais de uma thread seja processada ao mesmo tempo, com conceitos de `multithreading` ou `hyperthreading`)_
+
+2. Permitir que o `OS Scheduler` detecte grandes pausas de processamento devido ao uso de `I/O`, permitindo então que `threads` com instruções de `I/O` em andamento sejam colocadas em `pause` e que o fluxo de processamento seja redirecionado à uma outra `thread` até que o `I/O` seja finalizado para uma futura continuação.
 
 ## Core Modules
 
