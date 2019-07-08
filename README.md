@@ -49,7 +49,7 @@ Funções à serem executadas pelo Event-Loop são caracterizadas em:
 
 Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 
-![Node.js Internals](diagrams\nodejs_internals.PNG)
+![Node.js Internals](diagrams/nodejs_internals.PNG)
 
 > **Repositório Node.js no GitHub https://github.com/nodejs/node**
 
@@ -61,7 +61,7 @@ Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 - `process.binding()` é o método que conecta métodos JavaScript e C++, servindo como ponte  
 - `v8` é utilizado para traduzir as estrutura de dados do JavaScript para os equivalentes em C++
 
-![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](diagrams\nodejs_internals_linking_javascript_w_cplusplus.PNG)
+![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](diagrams/nodejs_internals_linking_javascript_w_cplusplus.PNG)
 
 ## Threads
 
@@ -71,7 +71,7 @@ Para cada `processo` podemos ter múltiplas `threads`, que por sua vez, pode ser
 
 Existe um componente responsável por definir qual `thread` deve ser processada pela CPU em um determinado momento do tempo, chamado de `OS Scheduler`, gerência os recursos disponíveis para cada dispositivo.
 
-![Diagram - Enhancing Threads Processing Rate](diagrams\nodejs_enhancing_threads_processing_rate.PNG)
+![Diagram - Enhancing Threads Processing Rate](diagrams/nodejs_enhancing_threads_processing_rate.PNG)
 
 Importante: **urgent threads** não devem esperar muito tempo para serem executadas. Ex: Thread com ação de mover o mouse na tela, travar, seria algo ruim à experiência do usuário.
 
@@ -85,9 +85,9 @@ Existe algumas diferentes estratégias para aprimorar a taxa de processamento da
 
 Toda vez que um **processo do NodeJS** é iniciado é criado automaticamente uma única `thread`, a qual possui um componente chamado `event loop`, que pode ser considerado uma estrutura de controle, que decide o que esta `thread` deve estar fazendo em um determinado momento do tempo.
 
-Um `pseudo-codigo` do **Event Loop** foi implementado à fim de entender seu funcionamento. [Visualizar](concepts\event-loop\eventloop.js).
+Um `pseudo-codigo` do **Event Loop** foi implementado à fim de entender seu funcionamento. [Visualizar](concepts/event-loop/eventloop.js).
 
-![Event Loop Diagram - In a Nutshell](diagrams\nodejs_event_loop_in_a_nutshell.PNG)
+![Event Loop Diagram - In a Nutshell](diagrams/nodejs_event_loop_in_a_nutshell.PNG)
 
 ### Is Node Single Threaded?
 
@@ -95,7 +95,7 @@ Na verdade não, o **Event Loop** é single thread, assim como visto acima, quan
 
 Algumas funções incluídas nos **Core Modules** do Node **não são single threaded!**, são executadas fora do event loop, fora da single thread do event loop.
 
-Um exemplo prático da prova deste conceito foi implementado. [Visualizar](concepts\event-loop\threads.js)
+Um exemplo prático da prova deste conceito foi implementado. [Visualizar](concepts/event-loop/threads.js)
 
 #### Libuv Thread Pool
 
@@ -105,7 +105,7 @@ Como no exemplo acima, a função `pbkdf2` do módulo `crypto` delega seu proces
 
 Por padrão, o `libuv` cria 4 threads neste Thread Pool, o que significa, que adicionalmente à thread o event loop, temos 4 outras threads para delegar tarefas pesadas.
 
-![Diagram - Libuv Threadpool](diagrams\nodejs_libuv_lib_thread_pool.PNG)
+![Diagram - Libuv Threadpool](diagrams/nodejs_libuv_lib_thread_pool.PNG)
 
 > É possível utilizar o **thread pool** para funções que escrevemos ou somente funções padrões do Node.js podem utilizar? _**Resposta:** Sim, é possível escrever funções JavaScript que utilizam o thread pool._
 
@@ -115,13 +115,13 @@ Por padrão, o `libuv` cria 4 threads neste Thread Pool, o que significa, que ad
 
 Curiosidade sobre o `readFile`, o qual faz duas viagens, uma inicial para identificar estatísticas do arquivo e outra para buscar o conteúdo.
 
-![Node.js Curious readFile Round Trip](diagrams\nodejs_fs_read-file_roundtrip.PNG)
+![Node.js Curious readFile Round Trip](diagrams/nodejs_fs_read-file_roundtrip.PNG)
 
 #### Libuv OS Delegation
 
 Libuv não tem capacidade de lidar com operações tão `low-level` como por exemplo transmissão de dados através da rede, diretamente. Esses tipos de tarefas são delegadas ao sistema operacional, e o libuv aguarda por sinais emitidos identificando a finalização da tarefa, ou seja, são assíncronos, não bloqueando o funcionamento da aplicação em Node.js.
 
-Exemplo implementado. [Visualizar](concepts\event-loop\async.js)
+Exemplo implementado. [Visualizar](concepts/event-loop/async.js)
 
 > Quais funções dos **core modules** que utilizem recursos do sistema operacional de forma assíncrona? **Resposta:** Quase tudo que envolve networking (rede) para todos os OS's e algumas outras são específicas de cada OS.
 
