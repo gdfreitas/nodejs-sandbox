@@ -129,7 +129,7 @@ Exemplo implementado. [Visualizar](concepts/event-loop/async.js)
 
 ## Enhancing Performance
 
-Iremos analisar duas das principais formas de melhorar a performance de aplicações em Node.js.
+Iremos analisar duas das principais formas de melhorar a performance de aplicações em Node.js. [Implementações](concepts/enhancing-performance)
 
 1. Executar o Node em **Cluster Mode**, ganhando assim, múltiplas instâncias do **event loop** e **thread pool**, tornando o Node, meio que "multi-thread". **Este método é recomendado.**. [Visualizar exemplo de implementação manual](/concepts/enhancing-performance/express-cluster.js), [Visualizar PM2 - Cluster Management Tool for Production](http://pm2.keymetrics.io/docs/usage/quick-start/)
 
