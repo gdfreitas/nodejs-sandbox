@@ -127,12 +127,22 @@ Exemplo implementado. [Visualizar](concepts/event-loop/async.js)
 
 > Onde estão estas funções assíncronas no pseudo-código do event loop? **Resposta:** São consideradas _pendingOSTasks__
 
+## Enhancing Performance
+
+Iremos analisar duas das principais formas de melhorar a performance de aplicações em Node.js.
+
+1. Executar o Node em **Cluster Mode**, ganhando assim, múltiplas instâncias do **event loop** e **thread pool**, tornando o Node, meio que "multi-thread". **Este método é recomendado.**. [Visualizar exemplo de implementação](/concepts/enhancing-performance/express-cluster.js)
+
+
+
+2. Usar **Worker Threads**, que utilizarão o **thread pool** do libuv. **Este método está em fase experimental**
+
 ## Core Modules
 
 - [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras, implementada em C++;
 - `crypto` fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.
-- TODO...
+- [`cluster`](https://nodejs.org/api/cluster.html) módulo nativo utilizado para tomar vantagem de sistemas multi-core servindo com gerênciador de instâncias de processos.
 
 ## Community Modules
 
