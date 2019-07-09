@@ -131,8 +131,7 @@ Exemplo implementado. [Visualizar](concepts/event-loop/async.js)
 
 Iremos analisar duas das principais formas de melhorar a performance de aplicações em Node.js.
 
-1. Executar o Node em **Cluster Mode**, ganhando assim, múltiplas instâncias do **event loop** e **thread pool**, tornando o Node, meio que "multi-thread". **Este método é recomendado.**. [Visualizar exemplo de implementação](/concepts/enhancing-performance/express-cluster.js)
-
+1. Executar o Node em **Cluster Mode**, ganhando assim, múltiplas instâncias do **event loop** e **thread pool**, tornando o Node, meio que "multi-thread". **Este método é recomendado.**. [Visualizar exemplo de implementação manual](/concepts/enhancing-performance/express-cluster.js), [Visualizar PM2 - Cluster Management Tool for Production](http://pm2.keymetrics.io/docs/usage/quick-start/)
 
 
 2. Usar **Worker Threads**, que utilizarão o **thread pool** do libuv. **Este método está em fase experimental**
@@ -148,6 +147,7 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 
 - [`nodemon`](https://github.com/remy/nodemon#nodemon) ferramenta de restart de processos em caso de alterações de arquivos
 - [`artillery`](https://github.com/artilleryio/artillery) ferramenta completa para testes de APIs, testes de cargas, testes funcionais, etc.
+- [`pm2`](http://pm2.keymetrics.io/docs/usage/quick-start/) ferramenta para gerenciamento de processos, clusterização, deployments, etc.
 - [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
 - [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken) é uma implementação da RFC-7519 (JSON Web Token) utilizada para encodar, assinar, etc estruturas de dados JSON de forma digital e segura.
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
