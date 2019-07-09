@@ -1,7 +1,12 @@
+process.env.UV_THREADPOOL_SIZE = 1;
+
+const crypto = require('crypto');
 const http = require('http');
 
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+
+const HeavyWorkerSimulator = require('./heavy-worker-simulator')
 
 // O arquivo está executando em modo "master"? 
 if (cluster.isMaster) {
@@ -17,26 +22,23 @@ if (cluster.isMaster) {
   });
 
 } else {
-
-  /**
-   * Simula um processamento durante determinado período de tempo
-   * @param {Number} duration in milliseconds
-   */
-  function doHeavyWork(duration) {
-    const start = Date.now();
-
-    while (Date.now() - start < duration) { }
-  }
-
   var server = http.createServer((req, res) => {
-
-    // Bloqueando event-loop
-    doHeavyWork(2500);
-
-    console.log(`Worker ${process.pid} responded`);
-
     res.writeHead(200);
-    res.end('Hi there');
+
+    var childPath = req.url.substr(1);
+
+    if (!childPath) {
+      // Bloqueando event-loop
+      HeavyWorkerSimulator.simulate(2500);
+      // crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
+      //   console.log(`Worker ${process.pid} responded`);
+      //   res.end('Hi there');
+      // })
+    } else {
+      console.log(`Worker ${process.pid} responded`);
+      res.end('Hi there');
+    }
+
   })
 
   server.listen(3000);
