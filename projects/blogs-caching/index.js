@@ -1,42 +1,64 @@
+require('dotenv').config()
+
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
 const bodyParser = require('body-parser');
-const keys = require('./config/keys');
 
-require('./models/User');
-require('./models/Blog');
-require('./services/passport');
+const redis = require('redis');
+const redisClient = redis.createClient(process.env.REDIS_URI);
+redisClient.on('error', function (err) {
+  console.error('[redis-client] Error', err);
+});
 
-mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+const Blog = require('./models/Blog');
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(
-    cookieSession({
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [keys.cookieKey]
-    })
-);
-app.use(passport.initialize());
-app.use(passport.session());
 
-require('./routes/authRoutes')(app);
-require('./routes/blogRoutes')(app);
+app.use((req, res, next) => {
+  req.user = {
+    id: 'gdfreitas',
+    name: 'Gabriel De Freitas'
+  }
 
-if (['production'].includes(process.env.NODE_ENV)) {
-    app.use(express.static('client/build'));
+  next();
+})
 
-    const path = require('path');
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve('client', 'build', 'index.html'));
-    });
-}
+app.get('/api/blogs', async (req, res) => {
+  const blogs = await Blog.find({ _userId: req.user.id });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Listening on port`, PORT);
+  res.send(blogs);
 });
+
+app.get('/api/blogs/:id', async (req, res) => {
+  const blog = await Blog.findOne({
+    _userId: req.user.id,
+    _id: req.params.id
+  });
+
+  res.send(blog);
+});
+
+app.post('/api/blogs', async (req, res) => {
+  const { title, content } = req.body;
+
+  const blog = new Blog({
+    title,
+    content,
+    _userId: req.user.id
+  });
+
+  try {
+    await blog.save();
+    res.send(blog);
+  } catch (err) {
+    res.send(400, err);
+  }
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port`, process.env.PORT);
+})
