@@ -172,9 +172,11 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 - [`express-ws](https://www.npmjs.com/package/express-ws) websockets para aplicações com servidor http com express.
 - [`helmet`](https://github.com/helmetjs/helmet) middleware p/ express que adiciona varios http headers para previnir alguns attacks conhecidos;
 - [`compression`](https://github.com/expressjs/compression) middleware para express para habilitar compression (gzip/deflate) de recursos;
+- [`Jest`](https://jestjs.io/docs/en/getting-started) framework JavaScript para implementação de testes.
 - [`mocha`](https://mochajs.org/) framework para nodejs e browser para implementaçõa de testes unitários;
 - [`chai`](https://www.chaijs.com/) biblioteca de asserção para nodejs e browser;
 - [`Sinon.JS`](https://sinonjs.org/) biblioteca para mocks, stubs, spies em testes;
+- [`Puppeteer`](https://github.com/GoogleChrome/puppeteer) biblioteca que provê uma API de controle do chrome/chromium de forma headless ou non-headless. Muito utilizada em automações de testes, geração de PDFs/screenshots, testes de extensões do chrome, etc.
 - [`node-config`](https://github.com/lorenwest/node-config) permite facilmente configurar parâmetros de deployments por environment (development, staging, production, etc)
 - [`dovenv`](https://github.com/motdotla/dotenv) permite carregar environment variables através de um arquivo `.env` para o `process.env`
 - [`sucrase`](https://github.com/alangpierce/sucrase) alternativa ao Babel para compilação de TypeScript, Flow, JSX, imports -> JavaScript, muito mais veloz para ambientes de desenvolvimento.
