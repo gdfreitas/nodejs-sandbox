@@ -11,3 +11,7 @@ Esta abordagem evita consumo desnecessário de processamento da API para upload 
 ## Exemplo de fluxo de upload
 
 ![Exemplo de fluxo de upload](docs/aws-s3-file-upload-flow.PNG)
+
+## Referências
+
+[AWS.S3 Documentation for Node.js](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html)
