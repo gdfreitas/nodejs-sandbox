@@ -182,6 +182,7 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 - [`sucrase`](https://github.com/alangpierce/sucrase) alternativa ao Babel para compilação de TypeScript, Flow, JSX, imports -> JavaScript, muito mais veloz para ambientes de desenvolvimento.
 - [`TypeScript`](https://github.com/Microsoft/TypeScript) "superset" of JavaScript, conjunto de extra-features ao JavaScript, principalmente, tipagem estática.
 - [`gm`](https://github.com/aheckmann/gm) [GraphicsMagick and ImageMagick para Node.js](http://www.graphicsmagick.org/) - utilitário para manipulação de imagens
+- [`Jimp`](https://www.npmjs.com/package/jimp) biblioteca para manipulação de imagens, sem dependências igual ao gm acima.
 
 ### Templating Engines
 
