@@ -137,12 +137,16 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 
 ## Core Modules
 
+São módulos nativos, embutidos no Node.js, não sendo necessária a instalação.
+
 - [`util`](https://nodejs.org/api/util.html) módulo nativo com inúmeros métodos utilitários, um exemplo é o promisify, que retorna uma promise da função desejada;
 - [`libuv`](https://github.com/libuv/libuv) biblioteca multi-plataforma responsável pela realização de I/O assíncrono, fornecendo implementação do event loop e do thread pool, juntamento com o suporte a TCP e UDP socket, resolução de DNS, sistema de arquivos, processos, entre outras, implementada em C++;
 - `crypto` fornece funcionalidade criptográfica que inclui um conjunto de invólucros para as funções hash, HMAC, cipher, decipher, sign, e verify do OpenSSL.
 - [`cluster`](https://nodejs.org/api/cluster.html) módulo nativo utilizado para tomar vantagem de sistemas multi-core servindo com gerênciador de instâncias de processos.
 
 ## Community Modules
+
+São módulos implementados e distribuídos pela comunidade através do NPM (Node Package Manager).
 
 - [`nodemon`](https://github.com/remy/nodemon#nodemon) ferramenta de restart de processos em caso de alterações de arquivos
 - [`artillery`](https://github.com/artilleryio/artillery) ferramenta completa para testes de APIs, testes de cargas, testes funcionais, etc.
@@ -152,7 +156,10 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 - [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
   - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
-  - `body-parser` middleware para fazer o parse do body das requests
+  - [`body-parser`](https://www.npmjs.com/package/body-parser) middleware para fazer o parse do body das requests
+- [`EJS`](http://ejs.co/) permite construção de templates dinâmicos com uma sintáxe própria.
+- [`handlebars`](https://handlebarsjs.com/) permite construção de HTMLs com expressões customizadas, sintáxe de expressões parecida com a do Angular.js 1.x.
+- [`pug`](https://pugjs.org/api/reference.html) permite construção de HTMLs minimalistas, sem tags de fechamentos, com identação estilo `.yaml` para definir blocos de tags.
 - [`Hapi`](https://hapijs.com/api) é um framework para construção de aplicações e API's, com bastante foco na configuração e reuso.
   - [`@hapi/joi`](https://www.npmjs.com/package/@hapi/joi) permite criação de validações
 - [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em JavaScript (é dependência do express-validator) - [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
@@ -183,12 +190,7 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 - [`TypeScript`](https://github.com/Microsoft/TypeScript) "superset" of JavaScript, conjunto de extra-features ao JavaScript, principalmente, tipagem estática.
 - [`gm`](https://github.com/aheckmann/gm) [GraphicsMagick and ImageMagick para Node.js](http://www.graphicsmagick.org/) - utilitário para manipulação de imagens
 - [`Jimp`](https://www.npmjs.com/package/jimp) biblioteca para manipulação de imagens, sem dependências igual ao gm acima.
-
-### Templating Engines
-
-- [`EJS`](http://ejs.co/) permite construção de templates dinâmicos com uma sintáxe própria.
-- [`handlebars`](https://handlebarsjs.com/) permite construção de HTMLs com expressões customizadas, sintáxe de expressões parecida com a do Angular.js 1.x.
-- [`pug`](https://pugjs.org/api/reference.html) permite construção de HTMLs minimalistas, sem tags de fechamentos, com identação estilo `.yaml` para definir blocos de tags.
+- [`Standard`](https://github.com/standard/standard) ferramenta para padronização de escrita de código JavaScript (code-linting) e possui automatizador para correção automática.
 
 ## Docs & References
 
@@ -228,7 +230,6 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 
 ## Cursos, Talks, Playlists, etc
 
-- [Curso Desenvolvedor Node.js - Jorge Sant Ana @ Udemy](https://www.udemy.com/curso-completo-do-desenvolvedor-nodejs)
 - [NodeJS - The Complete Guide - Maximilian Schwarzmuller @ Udemy](https://www.udemy.com/nodejs-the-complete-guide/)
 - [Advanced Node.js for Developers - Stephen Grider @ Udemy](https://www.udemy.com/advanced-node-for-developers)
 - [Node.js Playlist - Rodrigo Branas @ Youtube](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
