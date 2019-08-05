@@ -9,5 +9,6 @@
     "post:start": "node npm-scripts.js"
   },
   "author": "Gabriel Freitas",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": []
 }

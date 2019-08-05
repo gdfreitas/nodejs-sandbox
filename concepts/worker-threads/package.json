@@ -1,0 +1,18 @@
+{
+  "name": "worker-threads",
+  "version": "1.0.0",
+  "description": "É uma alternativa ao método provido pelo módulo de **Cluster**, o qual cria várias cópias isoladas da aplicação consumindo mais recursos de máquina.",
+  "main": "worker-threads.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fibonacci": "^1.6.7",
+    "standard": "^13.1.0",
+    "worker-threads-pool": "^2.0.0"
+  }
+}
