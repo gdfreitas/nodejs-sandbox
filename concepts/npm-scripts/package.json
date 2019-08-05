@@ -4,8 +4,9 @@
   "description": "Node Package Manager Scripts Sandbox",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "server": "node app.js"
+    "start": "node npm-scripts.js",
+    "pre:start": "node npm-scripts.js",
+    "post:start": "node npm-scripts.js"
   },
   "author": "Gabriel Freitas",
   "license": "ISC"

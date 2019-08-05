@@ -1,4 +1,9 @@
-// No windows, esta variável deve ser definida fora do contexto do arquivo
+/**
+ * Define a quantidade de threads no "thread pool" do Libuv
+ * 
+ * Observação: no windows esta variável não funciona caso seja declara no início do arquivo.
+ * Ela deve ser definida no ENV antes da execução ex: `UV_THREADPOOL_SIZE=2 node threadpool.js`
+ */
 process.env.UV_THREADPOOL_SIZE = 2;
 
 const crypto = require('crypto')
