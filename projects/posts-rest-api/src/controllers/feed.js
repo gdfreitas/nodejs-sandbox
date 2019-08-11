@@ -1,7 +1,5 @@
-const fs = require('fs')
-const path = require('path')
-
 const { validationResult } = require('express-validator/check')
+const { clearImage } = require('../util/file')
 
 const io = require('../config/socket')
 const Post = require('../models/Post')
@@ -211,9 +209,4 @@ exports.deletePost = async (req, res, next) => {
     }
     next(err)
   };
-}
-
-const clearImage = filePath => {
-  filePath = path.join(__dirname, '..', filePath)
-  fs.unlink(filePath, err => console.log(err))
 }
