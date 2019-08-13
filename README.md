@@ -153,10 +153,11 @@ São módulos implementados e distribuídos pela comunidade através do NPM (Nod
 - [`pm2`](http://pm2.keymetrics.io/docs/usage/quick-start/) ferramenta para gerenciamento de processos, clusterização, deployments, etc.
 - [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
 - [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken) é uma implementação da RFC-7519 (JSON Web Token) utilizada para encodar, assinar, etc estruturas de dados JSON de forma digital e segura.
-- [`Express`](https://expressjs.com/pt-br/4x/api.html#express) servidor web não organizado e minimalista para NodeJS
+- [`Express`](https://expressjs.com/pt-br/4x/api.html#express) framework web, rápido, flexível e minimalista
   - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
   - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
   - [`body-parser`](https://www.npmjs.com/package/body-parser) middleware para fazer o parse do body das requests
+- [`Nest.js`](https://docs.nestjs.com/) framework para construção de aplicações server-side eficientes, confiáveis e escalaveis
 - [`EJS`](http://ejs.co/) permite construção de templates dinâmicos com uma sintáxe própria.
 - [`handlebars`](https://handlebarsjs.com/) permite construção de HTMLs com expressões customizadas, sintáxe de expressões parecida com a do Angular.js 1.x.
 - [`pug`](https://pugjs.org/api/reference.html) permite construção de HTMLs minimalistas, sem tags de fechamentos, com identação estilo `.yaml` para definir blocos de tags.
