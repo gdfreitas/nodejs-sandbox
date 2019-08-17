@@ -1,53 +1,34 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { v4 as uuid } from 'uuid'
+import { Injectable } from "@nestjs/common";
 
-import { Post } from './post.model';
+import { Post } from './post.interface';
+import { PostDto } from "./post.dto";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from 'mongoose'
 
 @Injectable()
 export class PostsService {
 
-  private posts: Post[] = [];
+  constructor(@InjectModel('Post') private readonly itemModel: Model<Post>) { }
 
-  insertPost(title: string, content: string): string {
-    const generatedId = uuid();
-    const post = new Post(generatedId, title, content);
-    this.posts.push(post);
-    return generatedId;
+  async findAll(): Promise<Post[]> {
+    return await this.itemModel.find();
   }
 
-  getPosts() {
-    return [...this.posts];
+  async findOne(id: string): Promise<Post> {
+    return await this.itemModel.findOne({ _id: id });
   }
 
-  getSinglePost(postId: string) {
-    const post = this.findPost(postId)[0];
-    return { ...post }
+  async create(item: Post): Promise<Post> {
+    const newItem = new this.itemModel(item);
+    return await newItem.save();
   }
 
-  updateProduct(postId: string, title: string, content: string) {
-    const [post, index] = this.findPost(postId);
-
-    const updated = { ...post };
-    if (title) {
-      updated.title = title;
-    }
-
-    if (content) {
-      updated.content = content;
-    }
-
-    this.posts[index] = updated;
+  async delete(id: string): Promise<Post> {
+    return await this.itemModel.findByIdAndRemove(id);
   }
 
-  private findPost(id: string): [Post, number] {
-    const postIndex = this.posts.findIndex(post => post.id === id)
-    const post = this.posts[postIndex];
-
-    if (!post) {
-      throw new NotFoundException(`Não foi possível localizar o post de código ${id}`)
-    }
-
-    return [post, postIndex];
+  async update(id: string, item: Post): Promise<Post> {
+    return await this.itemModel.findByIdAndUpdate(id, item, { new: true });
   }
 
 }

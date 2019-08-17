@@ -1,38 +1,40 @@
-import { Controller, Post, Body, Get, Param, Patch } from "@nestjs/common";
+import { Controller, Post, Body, Get, Param, Delete, Put } from "@nestjs/common";
 
 import { PostsService } from "./posts.service";
+import { PostDto } from './post.dto'
+import { Post as PostItem } from './post.interface'
 
 @Controller('posts')
 export class PostsController {
 
-  constructor(private readonly postsService: PostsService) { }
-
-  @Post()
-  addPost(
-    @Body('title') title: string,
-    @Body('content') content: string,
-  ): any {
-    const generatedId = this.postsService.insertPost(title, content)
-
-    return {
-      id: generatedId
-    }
+  constructor(private readonly postsService: PostsService) {
   }
 
   @Get()
-  getAllPosts(): any {
-    return this.postsService.getPosts()
+  findAll(): Promise<PostItem[]> {
+    return this.postsService.findAll()
   }
 
   @Get(':id')
-  getPost(@Param('id') postId: string) {
-    return this.postsService.getSinglePost(postId);
+  // getPostById(@Req() req: Request, @Res() res: Response)
+  findOne(@Param('id') postId: string): Promise<PostItem> {
+    return this.postsService.findOne(postId);
   }
 
-  @Patch(':id')
-  updateProduct(@Param('id') postId: string, @Body('title') title: string, @Body('content') content: string) {
-    this.postsService.updateProduct(postId, title, content);
-    return null;
+  @Post()
+  // createPost(@Body('title') title: string, @Body('content') content: string)
+  create(@Body() representation: PostDto): Promise<PostItem> {
+    return this.postsService.create(representation)
+  }
+
+  @Put(':id')
+  update(@Param('id') postId: string, @Body() representation: PostDto): Promise<PostItem> {
+    return this.postsService.update(postId, representation);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') postId: string): Promise<PostItem> {
+    return this.postsService.delete(postId);
   }
 
 }
