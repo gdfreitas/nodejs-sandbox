@@ -177,7 +177,7 @@ São módulos implementados e distribuídos pela comunidade através do NPM (Nod
 - [`PDFKit`](http://pdfkit.org/) ferramenta para criação de PDFs dentro do Node.js.
 - [`Morgan`](https://github.com/expressjs/morgan) http request logger middleware.
 - [`socket.io`](https://socket.io/docs/) biblioteca que permite comunicação realtime utilizando websockets.
-- [`express-ws](https://www.npmjs.com/package/express-ws) websockets para aplicações com servidor http com express.
+- [`express-ws`](https://www.npmjs.com/package/express-ws) websockets para aplicações com servidor http com express.
 - [`helmet`](https://github.com/helmetjs/helmet) middleware p/ express que adiciona varios http headers para previnir alguns attacks conhecidos;
 - [`compression`](https://github.com/expressjs/compression) middleware para express para habilitar compression (gzip/deflate) de recursos;
 - [`Jest`](https://jestjs.io/docs/en/getting-started) framework JavaScript para implementação de testes.
