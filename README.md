@@ -4,38 +4,56 @@ Repositório destinado à estudar, documentar e aplicar conceitos sobre qualquer
 
 ## O que é Node.js
 
-Node.js é uma plataforma orientada à eventos assíncronos para execução de JavaScript, facilmente escalável devido ao seu design não de I/O não bloqueante.
+É uma plataforma para execução de JavaScript que utiliza o conceito baseado em eventos (_event driven_) e um modelo de I/O não bloqueante.
 
-É composto pela [Chrome's V8 JavaScript engine](https://v8.dev/), [libuv](https://libuv.org/), C++, entre outros.
+O design baseado em eventos assíncronos facilita o desenvolvido aplicações que utilizam rede de forma bastante escalável, podendo lidar com inúmeras conexões concorrentese e diferente do modelo tradicional de rede baseado em threads, o que pode ser ineficiente e difícil de utilizar.
 
-## Características
+### Características
 
-1. **Single Threaded**: o programa só "executa uma operação por vez" _(não é bem assim)_, contrário de multithreaded que consegue realizar múltiplas operações no mesmo instante de tempo.
-2. **Non-blocking**: o contexto de execução não é bloqueado por tarefas assícronas, seja I/O (acesso à disco e rede) ou por APIs como o timeout
-3. **Asynchronous**: paradigma para execução das operações com callbacks
-4. **Concurrent**: os callbacks executam concorrentemente
+- É baseado na Engine de JavaScript V8 do Chrome.
+- I/O assíncrono e baseado em eventos, não bloqueando a execução da aplicação.
+- Utiliza um modelo de single thread baseado no event looping.
+- É facilmente escalável devido ao mecanismo baseado em eventos.
+- Não consome muito tempo de processamento por _"buffering"_  de arquivos pois estes são separados em pedaços (_chunks_)
+- É open-source, permitindo que exista uma comunidade bastante ativa fornecendo excelentes módulos e capacidades adicionais às aplicações.
+- É disponibilizado sobre a licença MIT.
 
-**Event loop (task scheduler)**: é o responsável por verificar se há chamadas na task queue que podem ser levadas para serem executadas no callstack (que deve estar vazio, pois uma chamada é processada por vez)
+### Gerenciamento de pacotes
 
-**Call stack (execution contexts)**: pilha de instruções que serão executadas para uma determinada chamada no contexto de execução;
+**[NPM](https://docs.npmjs.com/about-npm/) (Node Package Manager)**: é uma CLI e um registry para gerênciamento de pacotes do Node.js
 
-**Task queue (delayed tasks)**: fila de instruções à serem executadas, são geralmente funções de callbacks utilizadas em alguma das APIs do Node.js (I/O, etc) ou Web APIs (DOM manipulation, etc):
+### Principais Pilares
 
-**Worker pool (background-tasks - multithreaded)**: é onde são executadas instruções de APIs como I/O assíncrono do Node.js (através do libuv), onde a leitura de um arquivo ou a escuta de um socket é processada até que seu callback possa ser enviado para a task queue, ou quando a API do setTimeout está contando regressivamente o timer para enviá-lo para a task queue.
+- [V8 - JavaScript/WebAssembly Engine](https://v8.dev/) é uma engine de alta performance escrita em C++, utilizada no navegador Google Chrome, no Node.js, entre outros.
+- [libuv](https://libuv.org/) é uma biblioteca multiplataforma focada em I/O assíncrono, primáriamente desenvolvida para o Node.js, mas também utilizada em outras linguagens.
 
-**Heap (memory available)**: é o recurso de memória do hardware disponível para armazenar valores de objetos, strings, etc. São automaticamente liberados quando não são mais utilizados, e esse processo é identificado através do garbage collection, que utiliza o conceito de contagem por referências para identificar quando é possível liberar recursos alocados para este determinado espaço da memória. [Mais sobre Memory Management](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Memory_Management)
+### Que tipo de cenário é recomendado utilizar?
 
-_Exemplo: Uma função de callback do setTimeout, dispara um contador regressivo, assim que esse tempo estiver finalizado, a função de callback é enviada para a task queue aguarda pelo tick do event loop._
+- Aplicações baseadas em I/O
+- Aplicações com streaming de dados
+- _Data Intensive Real-time Applications (DIRT)_
+- JSON APIs
+- SPA's
 
-Funções à serem executadas pelo Event-Loop são caracterizadas em:
+## Conceitos
 
-- **Macro tasks**: categoriza tarefas que devem ser processada em um ciclo do Event Loop. Exemplos: setTimeout, I/O e setInterval.
+**Task queue (delayed tasks)**: fila de instruções à serem executadas, são geralmente funções de _callbacks_ utilizadas em alguma das APIs do Node.js (I/O, promises, etc) ou Web APIs (DOM manipulation, etc).
 
-- **Micro tasks**: categoriza tarefas que devem ser executadas rapidamente, fazendo com que após o Event Loop processar uma macro task, todas as micro tasks disponíveis na _task queue_ sejam processadas (enviadas para a callstack) antes da próxima macro task da fila, independente da posição em que as micro tasks estavam. Exemplos: Promises e process.nextTick.
+- **Macro tasks**: categoriza tarefas que devem ser processada em um ciclo do Event Loop. _Exemplos: setTimeout, I/O e setInterval_
+  
+- **Micro tasks**: categoriza tarefas que devem ser executadas rapidamente, fazendo com que após o Event Loop processar uma **Macro task**, todas as **Micro tasks** disponíveis na **Task queue** sejam processadas (enviadas para a callstack) antes da próxima **Macro task** da fila, independente da posição em que as **Micro tasks** estavam. _Exemplos: Promises e process.nextTick_
 
-_[Mais sobre Macro & Microtasks](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)_
+- Mais em _[Tasks, microtasks, queues and schedules por Jake Archibald](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)_
 
-**REPL ou Read-Eval-Print-Loop**: forma executar códigos JavaScript através da linha de comando, é basicamente um "console interativo", comportamento semelhante ao console do navegador Chrome, onde pode-se criar variáveis, funções, e validá-las em instruções posteriores.
+**Call stack (execution contexts)**: pilha de instruções que serão executadas para uma determinada chamada no contexto de execução.
+
+**Event loop (task scheduler)**: é responsável por verificar se há callbacks aguardando na **Task queue** que podem ser levadas para **call stack** para serem executadas.
+
+**Worker pool (background-tasks - multithreaded)**: é onde são executadas instruções de APIs como I/O assíncrono do Node.js (através do libuv) onde a leitura de um arquivo ou a escuta de um socket é processada até que seu callback possa ser enviado para a **Task queue**, ou quando a API do _setTimeout_ está contando regressivamente o timer para enviar o _callback_ para a **Task queue**.
+
+**Heap (memory available)**: é o recurso à nível de hardware (memória) disponível para armazenar valores de objetos, strings, etc. São automaticamente liberados quando não são mais utilizados, e esse processo é identificado através do _garbage collection_, que utiliza o conceito de contagem por referências para identificar quando é possível liberar recursos alocados para este determinado espaço da memória. Esses recursos são gerênciados pela engine V8.
+
+**REPL ou Read-Eval-Print-Loop**: interface de linha de comando para executar códigos JavaScript, é considerado um "console interativo", semelhante encontrado nos DevTools dos navegadores.
 
 ## Node.js Internals
 
@@ -43,7 +61,7 @@ Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 
 ![Node.js Internals](diagrams/nodejs_internals.PNG)
 
-> **Repositório Node.js no GitHub https://github.com/nodejs/node**
+> **Repositório Node.js no GitHub [https://github.com/nodejs/node](https://github.com/nodejs/node)**
 
 - _`lib/internal`_ contém todas as implementações de funções e módulos disponíveis do lado "JavaScript" do Node.js  
 - _`src`_ contém todas as implementações em C++ das funções, é onde estão alocados as implementações utilizando libuv, v8, etc.
@@ -184,28 +202,23 @@ São módulos implementados e distribuídos pela comunidade através do NPM (Nod
 - [`gm`](https://github.com/aheckmann/gm) [GraphicsMagick and ImageMagick para Node.js](http://www.graphicsmagick.org/) - utilitário para manipulação de imagens
 - [`Jimp`](https://www.npmjs.com/package/jimp) biblioteca para manipulação de imagens, sem dependências igual ao gm acima.
 - [`Standard`](https://github.com/standard/standard) ferramenta para padronização de escrita de código JavaScript (code-linting) e possui automatizador para correção automática.
+- [`SendGrid`](https://sendgrid.com/docs/) biblioteca para integração com o serviço de e-mail em cloud provido ppela SendGrid.
+- [`stripe`](https://stripe.com/docs) biblioteca para integração com o gateway de pagamento do Stripe.
 
-## Docs & References
+## Docs
 
 - [Official Node.js Guides](https://nodejs.org/en/docs/guides/)
 - [Official Node.js Documentation](https://nodejs.org/dist/latest/docs/api/)
 - [Official MongoDB Documentation](https://docs.mongodb.com/manual/)
 - [CommonJS Specification](http://wiki.commonjs.org/wiki/CommonJS)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
-- [MongoDB - Atlas](https://docs.atlas.mongodb.com/connect-to-cluster/)
-- [Official Stripe.js Docs](https://stripe.com/docs)
-- [Web HTTP Headers @ Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
-- [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-- [What is a session in a Web Application?](https://www.quora.com/What-is-a-session-in-a-Web-Application)
-- [SendGrid - Mailer](https://sendgrid.com/docs/)
-- [Error Handling with Express](https://expressjs.com/en/guide/error-handling.html)
-- [Json](https://www.json.org/)
 
-## Articles
+## References
 
 - [Node.js - Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [Node.js - Blocking Code & Non-Blocking Code](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
 - [Loupe - Site interativo para entender callstack, event loop, APIs e callback queue](http://latentflip.com/loupe)
+- [Anatomy of a Modern Node.js Application Architecture](https://kapost-files-prod.s3.amazonaws.com/published/54ecac5ad433c3a69100035b/infographic-anatomy-of-a-modern-node-dot-js-application-architecture.pdf)
 - [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [MVC - Modern Web App Architecture @ MDN](https://developer.mozilla.org/en-US/docs/Web/Apps/Fundamentals/Modern_web_app_architecture/MVC_architecture)
 - [Holding on to your Performance Promises - Maya Lekova and Benedikt Meurer](https://www.youtube.com/watch?v=DFP5DKDQfOc&)
@@ -213,19 +226,10 @@ São módulos implementados e distribuídos pela comunidade através do NPM (Nod
 - [ES6 Generators estão mudando nosso modo de escrever JavaScript](https://medium.com/nossa-coletividad/es6-generators-est%C3%A3o-mudando-nosso-modo-de-escrever-javascript-e99f7c79bdd7)
 - [CSRF Attacks, XSRF or Sea-Surf](https://www.acunetix.com/websitesecurity/csrf-attacks/)
 - [Node.js Streams - Everything you need to know](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
-- [MySQL Data - Best way to implement pagination](https://stackoverflow.com/questions/3799193/mysql-data-best-way-to-implement-paging)
-- [Sequelize - Pagination](http://docs.sequelizejs.com/manual/tutorial/querying.html#pagination-limiting)
-- [AJAX - Getting started](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
-- [Introduction to _fetch()_](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 - [Node.js Detailed Approach Logging](https://blog.risingstack.com/node-js-logging-tutorial/)
 - [TypeScript - Vantagens, Mitos e Conceitos @ RocketSeat](https://blog.rocketseat.com.br/typescript-vantagens-mitos-conceitos)
 - [Node.js API Gateway vs API Manager @ Luiz Tools](https://www.luiztools.com.br/post/api-gateway-em-arquitetura-de-microservices-com-node-js/)
-
-## Cursos, Talks, Playlists, etc
-
 - [NodeJS - The Complete Guide - Maximilian Schwarzmuller @ Udemy](https://www.udemy.com/nodejs-the-complete-guide/)
 - [Advanced Node.js for Developers - Stephen Grider @ Udemy](https://www.udemy.com/advanced-node-for-developers)
 - [Node.js Playlist - Rodrigo Branas @ Youtube](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 - [Pagar.me - Talks @ Youtube](https://www.youtube.com/channel/UCNhSCufrcOMeFvzEM7tt9Lw)
-- [SQL vs NoSQL @ Academind](https://academind.com/learn/web-dev/sql-vs-nosql/)
-- [MongoDB Learn More @ Academind](https://academind.com/learn/mongodb)
