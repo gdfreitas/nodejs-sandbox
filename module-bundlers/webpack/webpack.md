@@ -1,10 +1,8 @@
-# Module Bundler
-
-## Webpack
+# Webpack
 
 Webpack é utilizado para compilar módulos JavaScript. Após instalado, pode ser utilizado através da CLI ou de sua API (programáticamente).
 
-### Instalação
+## Instalação
 
 `npm i -D webpack` ou `npm i -D webpack@version`
 
