@@ -40,7 +40,7 @@ O design baseado em eventos assíncronos facilita o desenvolvido aplicações qu
 **Task queue (delayed tasks)**: fila de instruções à serem executadas, são geralmente funções de _callbacks_ utilizadas em alguma das APIs do Node.js (I/O, promises, etc) ou Web APIs (DOM manipulation, etc).
 
 - **Macro tasks**: categoriza tarefas que devem ser processada em um ciclo do Event Loop. _Exemplos: setTimeout, I/O e setInterval_
-  
+
 - **Micro tasks**: categoriza tarefas que devem ser executadas rapidamente, fazendo com que após o Event Loop processar uma **Macro task**, todas as **Micro tasks** disponíveis na **Task queue** sejam processadas (enviadas para a callstack) antes da próxima **Macro task** da fila, independente da posição em que as **Micro tasks** estavam. _Exemplos: Promises e process.nextTick_
 
 - Mais em _[Tasks, microtasks, queues and schedules por Jake Archibald](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)_
@@ -63,12 +63,12 @@ Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 
 > **Repositório Node.js no GitHub [https://github.com/nodejs/node](https://github.com/nodejs/node)**
 
-- _`lib/internal`_ contém todas as implementações de funções e módulos disponíveis do lado "JavaScript" do Node.js  
+- _`lib/internal`_ contém todas as implementações de funções e módulos disponíveis do lado "JavaScript" do Node.js
 - _`src`_ contém todas as implementações em C++ das funções, é onde estão alocados as implementações utilizando libuv, v8, etc.
 
 ### Ponte entre JavaScript and C++
 
-- `process.binding()` é o método que conecta métodos JavaScript e C++, servindo como ponte  
+- `process.binding()` é o método que conecta métodos JavaScript e C++, servindo como ponte
 - `v8` é utilizado para traduzir as estrutura de dados do JavaScript para os equivalentes em C++
 
 ![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](diagrams/nodejs_internals_linking_javascript_w_cplusplus.PNG)
@@ -233,3 +233,4 @@ São módulos implementados e distribuídos pela comunidade através do NPM (Nod
 - [Advanced Node.js for Developers - Stephen Grider @ Udemy](https://www.udemy.com/advanced-node-for-developers)
 - [Node.js Playlist - Rodrigo Branas @ Youtube](https://youtu.be/KtDwdoxQL4A?list=PLQCmSnNFVYnTFo60Bt972f8HA4Td7WKwq)
 - [Pagar.me - Talks @ Youtube](https://www.youtube.com/channel/UCNhSCufrcOMeFvzEM7tt9Lw)
+- [Node Best Practices @ Heroku Dev Center](https://devcenter.heroku.com/articles/node-best-practices)

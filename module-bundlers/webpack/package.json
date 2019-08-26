@@ -4,13 +4,14 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "build:v2": "webpack --config webpack.prod.js",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "server": "node server.js"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "server": "webpack-dev-server --open",
+    "server:v2": "node server.js"
   },
-  "author": "",
+  "author": "Gabriel de Freitas <gdfreitasdev@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
@@ -24,6 +25,7 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1",
     "xml-loader": "^1.2.1"
   },
   "dependencies": {

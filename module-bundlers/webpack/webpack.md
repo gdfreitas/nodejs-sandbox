@@ -706,3 +706,228 @@ module.exports = env => {
 };
 ```
 
+## Tree Shaking
+
+É um termo muito comum utilizado no contexto de linguagem JavaScript para remoção de códigos considerados "mortos", ou seja, não utilizados. _O nome e o conceito foi popularizado pelo module bundler rollup_
+
+Criar um utilitário, que possua 2 funções, na qual, somente 1 será utilizada no código, a outra será considerada dead-code.
+
+```js
+export function square(x) {
+  return x * x;
+}
+
+export function cube(x) {
+  return x * x * x;
+}
+```
+
+Adicionar a propriedade `optimization.usedExports = true` significando que somente exports utilizados serão considerados.
+
+```js
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  mode: 'development',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Tree Shaking'
+    })
+  ],
+  output: {
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  optimization: {
+    usedExports: true
+  }
+}
+```
+
+Ainda assim, é necessário definir uma propriedade chamada `sideEffects` no `package.json` do projeto, indicando que o webpack pode de maneira segura dropar os exports não utilizados, ou se de alguma forma, algum arquivo pode estar exportando algo globalmente, assim como em polyfills, que não necessariamente estariam sendo utilizados dentro deste projeto.
+
+```json
+{
+  "name": "my-project",
+
+  // Contém arquivo que possui efeitos colaterais
+  "sideEffects": [
+    "./src/some-side-effectful-file.js",
+    "*.css"
+  ],
+
+  // O projeto não possui efeitos colaterais
+  "sideEffects": false
+}
+```
+
+_Nota: Esta propriedade também pode ser configurada no arquivo de configuração do webpack, através da propriedade `rules.sideEffects`._
+
+## Production
+
+Melhores práticas e utilitários para construção de apps
+
+Os objetivos em ambiente de desenvolvimento são fortes source-mappings para facilitar debug e um servidor localhost com live reloading ou hot module replacement.
+
+Já em produção, os objetivos são focar em bundles minificados, leves, com source mappings mais leves, assets otimizados para aprimorar tempo de carregamento.
+
+Com essa separação lógica entre os ambientes, a documentação oficial do webpack recomenda que diferentes configurações do webpack sejam criandas por ambientes para projetos.
+
+Utilizando o conceito de DRY _(Dont Repeat Yourself)_, manteremos uma configuração em comum entre os dois ambientes, e para fazer a mescla entre os arquivos, há um utilitário chamado [`webpack-merge`](https://github.com/survivejs/webpack-merge). Para instalar: `npm i -D webpack-merge`.
+
+Sugere-se a criação de 3 novos arquivos `webpack.common.js`, `webpack.dev.js` e `webpack.prod.js`, conforme abaixo:
+
+`webpack.common.js` contendo as configurações em comum, como `entry`, `plugins` e `output`
+
+```js
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: {
+    app: './src/index.js'
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Production'
+    })
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+`webpack.dev.js` com as configurações de source mapping e dev-server
+
+```js
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist'
+  }
+});
+```
+
+`webpack.prod.js` com as configurações de production
+
+```js
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+  mode: 'production',
+});
+```
+
+O `package.json` deve conter os scripts devidamente apontando para as configurações
+
+```json
+{
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  }
+}
+```
+
+### Minification
+
+Por padrão o webpack minificará automaticamente o código quando utilizado a flag `mode: 'production'`.
+
+Nota: vale ressaltar que possívelmente outras libraries também tenham certas tomadas de decisão ao utilizar o modo de `production`, visto que é uma convenção do Node.js utilizar o `NODE_ENV` para separação entre ambientes, sendo assim, reduzindo o bundle final.
+
+### npm_lifecycle_event
+
+Uma alternativa à estrutura de arquivos por ambiente sugerida na documentação oficial, é utilizar a variável que captura o evento do npm que está em execução para encontrar o arquivo para aquele contexto. A variável é `process.env.npm_lifecycle_event`.
+
+Neste cenário, temos somente um `webpack.config.js` no root da aplicação, que irá carregar os módulos conforme o evento.
+
+- `npm run build` irá executar a configuração do webpack em `./build/build.js`
+- `npm run server` irá executar a configuração do webpack em `./build/server.js`
+- E em `./build/common.js` está a configuração padrão, esta opção, alternativa evita poluir o root do projeto com configurações por "ambiente".
+
+Em `./build/common.js`
+
+```js
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: {
+    app: path.resolve(__dirname, '..', 'src', 'index.js')
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Production'
+    })
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '..', 'dist')
+  }
+};
+```
+
+Em `./build/server.js`
+
+```js
+const path = require('path');
+
+const merge = require('webpack-merge');
+const common = require('./common.js');
+
+module.exports = merge(common, {
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: path.resolve(__dirname, '..', 'dist'),
+    compress: true,
+    port: 9000
+  }
+});
+```
+
+Em `./build/build.js`
+
+```js
+const merge = require('webpack-merge');
+const common = require('./common.js');
+
+module.exports = merge(common, {
+  mode: 'production',
+  devtool: 'source-map'
+});
+```
+
+Em `webpack.config.js`
+
+```js
+console.log(`Loading webpack for ${process.env.npm_lifecycle_event}`)
+
+module.exports = require(`./build/${process.env.npm_lifecycle_event}.js`)
+```
+
+Em `package.json`
+
+```json
+{
+  "scripts": {
+    "build": "webpack",
+    "server": "webpack-dev-server --open",
+  }
+}
+```
