@@ -286,6 +286,174 @@ console.log(count); // 1
 count += 1; // Error — only incrementer.js can change this
 ```
 
+## Gerênciando Bundles
+
+Em `src/foo.js`
+
+```js
+export default 'hello world!';
+```
+
+Em `src/main.js`
+
+```js
+import foo from './foo.js';
+
+export default function () {
+  console.log(foo);
+}
+```
+
+Para criar o bundle, executar: `rollup src/main.js -f cjs`, percebe-se que o output é impresso no console, visto que por padrão a saída vai para o `stdout`.
+
+Para salvar para um arquivo, usa-se a flag `-o filename`: `rollup src/main.js -o bundle.js -f cjs` ou o o caracter que indica a saída para um arquivo, porém é menos flexível `rollup src/main.js -f cjs > bundle.js`
+
+### Utilizando arquivos de configuração
+
+A fim de ficar mais facil de declarar as opções do projeto, iremos utilizar o arquivo `rollup.config.js`
+
+```js
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs'
+  }
+};
+```
+
+_Nota: é possível utilizar também os modulos do CommonJS neste arquivo (`module.exports = { /*config*/}`)_
+
+Para rodar deve ser passado a flag `-c` ou `--config`: `rollup -c -o bundle.js`
+
+Diferentes arquivos podem ser especificados para a configuração: `rollup --config rollup.config.dev.js` ou `rollup --config rollup.config.prod.js`
+
+### Instalando rollup localmente
+
+Quando trabalhando em times ou ambientes distribuídos, é mais inteligente utilizar o rollup de maneira local, instalado no projeto, prevenindo que diferentes versões sejam utilizados por membros da equipe.
+
+#### Instalar local
+
+Comando: `npm i -D rollup`
+
+#### Executar
+
+Comando `npx rollup --config`
+
+Ou através de npm scripts no `package.json`
+
+```json
+{
+  "scripts": {
+    "build": "rollup --config"
+  }
+}
+```
+
+## Utilizando Plugins
+
+Conforme o projeto vai ser tornando maior, algumas necessidades vêm a tona, como importar módulos instalados via NPM, compilar código com Babel, trabalhar com arquivos como json, etc.
+
+Para isso são utilizados os _plugins_, que alteram o comportamento do rollup em pontos chaves do processo de bundling, [uma lista destes plugins é sugerida pela documentação](https://github.com/rollup/awesome).
+
+### Exemplo rollup-plugin-json
+
+Em `package.json`
+
+```json
+{
+  "scripts": {
+    "build": "rollup -c"
+  }
+}
+```
+
+Instalar o plguin como dependência de desenvolvimento: `npm i -D rollup-plugin-json`
+
+Alterar o `main.js` para importar uma propriedade do `package.json`
+
+```js
+import { version } from '../package.json';
+
+export default function () {
+  console.log('version ' + version);
+}
+```
+
+Atualizar o `rollup.config.js` para utilizar o plugin.
+
+```js
+import json from 'rollup-plugin-json'
+
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs'
+  },
+  plugins: [
+    json()
+  ]
+};
+```
+
+Nota: perceba que somente a propriedade `version` é importada, isso é o `tree-shaking` em ação.
+
+## Code Splitting
+
+Para testar esta funcionalidade, utilizamos o `main.js` abaixo:
+
+```js
+export default function () {
+  import('./foo.js')
+    .then(({ default: foo }) => console.log(foo));
+}
+```
+
+O rollup irá utilizar o dynamic import para criar um chunk separado que só é carregado quando for demandado. É necessário então que a gente informe ao rollup aonde colocar este chunk em vez de passar a opção `--file` ou `-c` iremos agora passar um diretório de outputs com a opção `--dir` ou `-d`
+
+Comando: `rollup src/main.js -f cjs -d dist`
+
+Ao executar o comando, percebe-se que uma pasta `dist` foi criada, contendo dois arquivos, um `main.js` e um `chunk-[hash].js` onde o hash é uma string baseada no conteúdo. Isso também é configurável através das propriedades [`output.chunkFileNames`](https://rollupjs.org/guide/en/#outputchunkfilenames) e [`output.entryFileNames`](https://rollupjs.org/guide/en/#outputentryfilenames)
+
+==
+
+Ao criar um segundo arquivo `main2.js` que também depende do `foo.js`, o build automaticamente irá utilizar a mesma referência.
+
+Comando: `rollup src/main.js src/main2.js -f cjs`
+
+### Browser
+
+O mesmo código acima pode ser gerado para browsers via ES modules, AMD loader ou System JS.
+
+#### ES modules
+
+Comando: `rollup src/main.js src/main2.js -f esm -d dist`
+
+```html
+<!doctype html>
+<script type="module">
+  import main2 from './dist/main2.js';
+  main2();
+</script>
+```
+
+#### SystemJS
+
+Comando: `rollup src/main.js src/main2.js -f system -d dist`
+
+Instalar SystemJS: `npm install --save-dev systemjs`
+
+```html
+<!doctype html>
+<script src="node_modules/systemjs/dist/system-production.js"></script>
+<script>
+  System.import('./dist/main2.js')
+  .then(({ default: main }) => main());
+</script>
+```
+
+[Ver aqui um exemplo de `code-spliting`](https://github.com/rollup/rollup-starter-code-splitting) que mostra como configurar uma web app com ES modules nativos, e como suportar utilizando o SystemJS como fallback caso necessário.
 
 ## Referências
 
