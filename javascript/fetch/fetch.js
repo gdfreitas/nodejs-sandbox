@@ -32,7 +32,7 @@ let options = {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
   },
-  mode: 'cors', // Default: "cors", inclui os headers "Access-Control-Allow-Credentials/Origin"
+  mode: 'no-cors', // Default: "cors", inclui os headers "Access-Control-Allow-Credentials/Origin"
   body: JSON.stringify({
     message: 'Isto funciona?'
   })
