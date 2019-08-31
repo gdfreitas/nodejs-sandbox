@@ -7,8 +7,27 @@ const MOCK_APIS_URL = {
 }
 
 /**
- * fetch é uma webapi disponível nos browsers
- * por padrão irá fazer um http get na URL informada
+ * AJAX - Asynchronous JavaScript e XML, é um objeto exposto em webapis que permite enviar/receber
+ * informações em diversos formatos (JSON, XML, HTML, etc) em um fluxo assíncrono, sem a necessidade
+ * de atualizar a página do navegador.
+ * Docs: https://developer.mozilla.org/pt-BR/docs/Web/Guide/AJAX
+ */
+let xhr = new XMLHttpRequest();
+xhr.open('GET', MOCK_APIS_URL.USER_IP);
+xhr.responseType = 'json';
+xhr.onload = function () {
+  console.log('XHR Response', xhr.response);
+}
+xhr.onerror = function () {
+  console.error('Ocorreu um erro', error)
+}
+xhr.send();
+
+
+/**
+ * Fetch API fornece uma interface para buscar recursos na rede, sendo disponibilizado como webapi e sendo
+ * uma evolução do AJAX, com recursos mais poderosos e mais flexível.
+ * Docs: https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API
  */
 fetch(MOCK_APIS_URL.USER_IP)
   .then(function (response) {
@@ -17,7 +36,7 @@ fetch(MOCK_APIS_URL.USER_IP)
     return response.json();
   })
   .then(function (body) {
-    console.log('body', body);
+    console.log('Fetch body', body);
   })
   .catch(function (error) {
     console.error('Ocorreu um erro', error)
