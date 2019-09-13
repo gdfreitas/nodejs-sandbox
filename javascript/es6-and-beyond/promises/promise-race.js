@@ -1,3 +1,7 @@
+/**
+ * Promise.race irá concluir em "curto circuito" assim que a primeira promise for concluída
+ * seja ela fullfilled ou rejected
+ */
 const requestBahia = new Promise((resolve, reject) => {
   setTimeout(resolve, 500, 'Bahia!')
 })

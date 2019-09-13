@@ -218,6 +218,7 @@ São módulos implementados e distribuídos pela comunidade através do NPM (Nod
 - [Node.js - Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [Node.js - Blocking Code & Non-Blocking Code](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
 - [Loupe - Site interativo para entender callstack, event loop, APIs e callback queue](http://latentflip.com/loupe)
+- [TC39 - Ecma262](https://tc39.es/ecma262/)
 - [Anatomy of a Modern Node.js Application Architecture](https://kapost-files-prod.s3.amazonaws.com/published/54ecac5ad433c3a69100035b/infographic-anatomy-of-a-modern-node-dot-js-application-architecture.pdf)
 - [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [MVC - Modern Web App Architecture @ MDN](https://developer.mozilla.org/en-US/docs/Web/Apps/Fundamentals/Modern_web_app_architecture/MVC_architecture)
