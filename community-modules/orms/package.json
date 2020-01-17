@@ -11,6 +11,6 @@
   "devDependencies": {
     "knex": "^0.15.2",
     "pg": "^7.6.0",
-    "sequelize": "^4.41.0"
+    "sequelize": "^4.44.3"
   }
 }
