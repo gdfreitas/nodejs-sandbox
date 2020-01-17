@@ -1,6 +1,6 @@
 # nodejs-sandbox
 
-Repositório destinado à estudar, documentar e aplicar conceitos sobre qualquer conteúdo relacionado à Node.js e JavaScript.
+Repositório destinado à agregar conceitos e práticas relacionados ao Node.js e JavaScript
 
 ## O que é Node.js
 
@@ -24,7 +24,7 @@ O Node.js depende de um conjunto de bibliotecas, sendo as principais:
 
 - [npm](https://docs.npmjs.com/) é uma ferramenta de linha de comando que permite o gerenciamento de pacotes no ecosistema do Node.js.
 
-### Utilização
+### Principais aplicações
 
 Podemos utilizar o Node.js para inúmeras aplicações em diversas plataformas, conforme pesquisa abaixo.
 
@@ -71,7 +71,7 @@ Exemplos onde podemos utilizar Node.js extraindo ao máximo da plataforma:
 
 Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 
-![Node.js Internals](diagrams/nodejs_internals.PNG)
+![Node.js Internals](docs/nodejs_internals.PNG)
 
 > **Repositório Node.js no GitHub [https://github.com/nodejs/node](https://github.com/nodejs/node)**
 
@@ -83,7 +83,7 @@ Como funciona o Node.js internamente? Qual seu relacionamento com o C++?
 - `process.binding()` é o método que conecta métodos JavaScript e C++, servindo como ponte
 - `v8` é utilizado para traduzir as estrutura de dados do JavaScript para os equivalentes em C++
 
-![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](diagrams/nodejs_internals_linking_javascript_w_cplusplus.PNG)
+![Node.js Internals - Exemplo Diagrama JavaScript vinculando método em C++](docs/nodejs_internals_linking_javascript_w_cplusplus.PNG)
 
 ### Threads
 
@@ -93,7 +93,7 @@ Para cada `processo` podemos ter múltiplas `threads`, que por sua vez, pode ser
 
 Existe um componente responsável por definir qual `thread` deve ser processada pela CPU em um determinado momento do tempo, chamado de `OS Scheduler`, gerência os recursos disponíveis para cada dispositivo.
 
-![Diagram - Enhancing Threads Processing Rate](diagrams/nodejs_enhancing_threads_processing_rate.PNG)
+![Diagram - Enhancing Threads Processing Rate](docs/nodejs_enhancing_threads_processing_rate.PNG)
 
 Importante: **urgent threads** não devem esperar muito tempo para serem executadas. Ex: Thread com ação de mover o mouse na tela, travar, seria algo ruim à experiência do usuário.
 
@@ -109,7 +109,7 @@ Toda vez que um **processo do NodeJS** é iniciado é criado automaticamente uma
 
 Um `pseudo-codigo` do **Event Loop** foi implementado à fim de entender seu funcionamento. [Visualizar](concepts/event-loop/eventloop.js).
 
-![Event Loop Diagram - In a Nutshell](diagrams/nodejs_event_loop_in_a_nutshell.PNG)
+![Event Loop Diagram - In a Nutshell](docs/nodejs_event_loop_in_a_nutshell.PNG)
 
 ### O Node.js não é single threaded
 
@@ -127,7 +127,7 @@ Como no exemplo acima, a função `pbkdf2` do módulo `crypto` delega seu proces
 
 Por padrão, o `libuv` cria 4 threads neste Thread Pool, o que significa, que adicionalmente à thread o event loop, temos 4 outras threads para delegar tarefas pesadas.
 
-![Diagram - Libuv Threadpool](diagrams/nodejs_libuv_lib_thread_pool.PNG)
+![Diagram - Libuv Threadpool](docs/nodejs_libuv_lib_thread_pool.PNG)
 
 > É possível utilizar o **thread pool** para funções que escrevemos ou somente funções padrões do Node.js podem utilizar? _**Resposta:** Sim, é possível escrever funções JavaScript que utilizam o thread pool._
 
@@ -137,7 +137,7 @@ Por padrão, o `libuv` cria 4 threads neste Thread Pool, o que significa, que ad
 
 Curiosidade sobre o `readFile`, o qual faz duas viagens, uma inicial para identificar estatísticas do arquivo e outra para buscar o conteúdo.
 
-![Node.js Curious readFile Round Trip](diagrams/nodejs_fs_read-file_roundtrip.PNG)
+![Node.js Curious readFile Round Trip](docs/nodejs_fs_read-file_roundtrip.PNG)
 
 #### Libuv OS Delegation
 
@@ -159,66 +159,21 @@ Iremos analisar duas das principais formas de melhorar a performance de aplicaç
 
 ## Core Modules _[Documentation](https://nodejs.org/api/)_
 
-São módulos nativos, embutidos no Node.js, não sendo necessária a instalação.
+São módulos nativos, embutidos no Node.js, não sendo necessário a instalação.
 
 ## Community Modules
 
-São módulos implementados e distribuídos pela comunidade através do NPM (Node Package Manager).
+São módulos implementados e distribuídos pela comunidade através do **npm** (Node Package Manager).
 
-- [`nodemon`](https://github.com/remy/nodemon#nodemon) ferramenta de restart de processos em caso de alterações de arquivos
-- [`artillery`](https://github.com/artilleryio/artillery) ferramenta completa para testes de APIs, testes de cargas, testes funcionais, etc.
-- [`pm2`](http://pm2.keymetrics.io/docs/usage/quick-start/) ferramenta para gerenciamento de processos, clusterização, deployments, etc.
-- [`mongodb`](https://github.com/mongodb/node-mongodb-native) driver de interação com banco de dados MongoDB;
-- [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken) é uma implementação da RFC-7519 (JSON Web Token) utilizada para encodar, assinar, etc estruturas de dados JSON de forma digital e segura.
-- [`Express`](https://expressjs.com/pt-br/4x/api.html#express) framework web, rápido, flexível e minimalista
-  - [`express-validator`](https://express-validator.github.io/docs/) middleware para validações de parâmetros em requests
-  - [`express-session`](https://github.com/expressjs/session) middleware para criação e controle de sessions utilizando cookies
-  - [`body-parser`](https://www.npmjs.com/package/body-parser) middleware para fazer o parse do body das requests
-- [`Nest.js`](https://docs.nestjs.com/) framework para construção de aplicações server-side eficientes, confiáveis e escalaveis
-- [`EJS`](http://ejs.co/) permite construção de templates dinâmicos com uma sintáxe própria.
-- [`handlebars`](https://handlebarsjs.com/) permite construção de HTMLs com expressões customizadas, sintáxe de expressões parecida com a do Angular.js 1.x.
-- [`pug`](https://pugjs.org/api/reference.html) permite construção de HTMLs minimalistas, sem tags de fechamentos, com identação estilo `.yaml` para definir blocos de tags.
-- [`Hapi`](https://hapijs.com/api) é um framework para construção de aplicações e API's, com bastante foco na configuração e reuso.
-  - [`@hapi/joi`](https://www.npmjs.com/package/@hapi/joi) permite criação de validações
-- [`validator.js`](https://github.com/chriso/validator.js) utilitário com inúmeros métodos de validações em JavaScript (é dependência do express-validator) - [`nodemailer`](https://nodemailer.com/about/) criação e envio de e-mails
-- [`Qs`](https://github.com/ljharb/qs) é um parser de querystring
-- [`Sequelize`](http://docs.sequelizejs.com/) promise-based object-relational mapping (ORM) c/ suporte para PostgreSQL, MySQL, etc, suporta inúmeras características de bancos relacionais.
-- [`Mongoose`](https://mongoosejs.com/docs/index.html) MongoDB object modeling, com suporte à validação, queries, hooks, etc.
-- [`Knex.js`](https://knexjs.org/) é um utilitário para criação de queries para Postgres, MySQL, Oracle, etc, com o objetivo de ser flexível, portável e fácil, suporta inúmeras características de bancos relacionais.
-- [`async`](https://caolan.github.io/async/docs.html) módulo com vários métodos para o uso em trabalhos assíncronos com JavaScript.
-- [`consign`](https://www.npmjs.com/package/consign) utilitário usado para requerir automaticamente todos os arquivos de um determinado diretório
-- [`connect-flash`](https://github.com/jaredhanson/connect-flash) utilitário para troca de mensagens através de cookies em requests.
-- [`connect-mongodb-session`](https://github.com/mongodb-js/connect-mongodb-session) utilitário para armazenamento de sessões no MongoDB com o módulo Express.
-- [`bcrypt.js`](https://github.com/dcodeIO/bcrypt.js/blob/master/README.md) documentação oficial do bcrypt.js
-- [`Multer`](https://github.com/expressjs/multer) middleware para express para lidar com _multipart/form-data_ que é utilizado principalmente para upload de arquivos.
-- [`PDFKit`](http://pdfkit.org/) ferramenta para criação de PDFs dentro do Node.js.
-- [`Morgan`](https://github.com/expressjs/morgan) http request logger middleware.
-- [`socket.io`](https://socket.io/docs/) biblioteca que permite comunicação realtime utilizando websockets.
-- [`express-ws`](https://www.npmjs.com/package/express-ws) websockets para aplicações com servidor http com express.
-- [`helmet`](https://github.com/helmetjs/helmet) middleware p/ express que adiciona varios http headers para previnir alguns attacks conhecidos;
-- [`compression`](https://github.com/expressjs/compression) middleware para express para habilitar compression (gzip/deflate) de recursos;
-- [`Jest`](https://jestjs.io/docs/en/getting-started) framework JavaScript para implementação de testes.
-- [`mocha`](https://mochajs.org/) framework para nodejs e browser para implementaçõa de testes unitários;
-- [`chai`](https://www.chaijs.com/) biblioteca de asserção para nodejs e browser;
-- [`Sinon.JS`](https://sinonjs.org/) biblioteca para mocks, stubs, spies em testes;
-- [`Puppeteer`](https://github.com/GoogleChrome/puppeteer) biblioteca que provê uma API de controle do chrome/chromium de forma headless ou non-headless. Muito utilizada em automações de testes, geração de PDFs/screenshots, testes de extensões do chrome, etc.
-- [`node-config`](https://github.com/lorenwest/node-config) permite facilmente configurar parâmetros de deployments por environment (development, staging, production, etc)
-- [`dovenv`](https://github.com/motdotla/dotenv) permite carregar environment variables através de um arquivo `.env` para o `process.env`
-- [`sucrase`](https://github.com/alangpierce/sucrase) alternativa ao Babel para compilação de TypeScript, Flow, JSX, imports -> JavaScript, muito mais veloz para ambientes de desenvolvimento.
-- [`TypeScript`](https://github.com/Microsoft/TypeScript) "superset" of JavaScript, conjunto de extra-features ao JavaScript, principalmente, tipagem estática.
-- [`gm`](https://github.com/aheckmann/gm) [GraphicsMagick and ImageMagick para Node.js](http://www.graphicsmagick.org/) - utilitário para manipulação de imagens
-- [`Jimp`](https://www.npmjs.com/package/jimp) biblioteca para manipulação de imagens, sem dependências igual ao gm acima.
-- [`Standard`](https://github.com/standard/standard) ferramenta para padronização de escrita de código JavaScript (code-linting) e possui automatizador para correção automática.
-- [`SendGrid`](https://sendgrid.com/docs/) biblioteca para integração com o serviço de e-mail em cloud provido ppela SendGrid.
-- [`stripe`](https://stripe.com/docs) biblioteca para integração com o gateway de pagamento do Stripe.
+Uma lista de alguns modulos pode ser encontrada em [community-modules/community-modules.md](community-modules/community-modules.md)
 
-## Docs
+## Links Oficiais
 
 - [Official Node.js Guides](https://nodejs.org/en/docs/guides/)
 - [Official Node.js Documentation](https://nodejs.org/dist/latest/docs/api/)
 - [Node.js @ GitHub](https://github.com/nodejs/node)
 
-## References
+## Referências
 
 - [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [The Strict Mode of ECMAScript](http://www.ecma-international.org/ecma-262/5.1/#sec-C)
