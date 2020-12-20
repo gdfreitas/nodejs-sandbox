@@ -83,8 +83,8 @@ console.log(Object.getOwnPropertyNames(person2));
 person2._kind = 'Beast'; // Alterou a propriedade :(
 console.log('person2 kind', person2.kind); // kind Beast
 
-// Node.js V12 -
-// Não precisa de construtor
+// Node.js V12 Field Declaration
+// Não precisa mais declarar as propriedades por meio do construtor
 class Person3 {
   kind = 'Human'; // public
   #age = 34; // private
