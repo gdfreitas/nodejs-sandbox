@@ -1,7 +1,7 @@
 let array = [1, 2, 3, 4, 5];
 
 // for c/ múltiplos parâmetros
-for (let c = 10, j = 10; c < 13; c++ , ++j) {
+for (let c = 10, j = 10; c < 13; c++, ++j) {
   console.log(c, j)
 }
 
@@ -20,3 +20,17 @@ for (let key in obj) {
 for (let val of array) {
   console.log(val)
 }
+
+(async () => {
+  const delay = () => new Promise(res => setTimeout(res, 300, 'done'))
+
+  // [for-await] utilizado para iterar sobre promises
+  const promises = [delay(), delay(), delay()];
+
+  for await (const result of promises) {
+    console.log('result', result);
+  }
+
+  console.log('Done');
+
+})();
