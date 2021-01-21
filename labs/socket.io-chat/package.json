@@ -1,0 +1,18 @@
+{
+  "name": "socket.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-validator": "^5.0.3",
+    "socket.io": "^2.0.4"
+  }
+}

@@ -1,13 +1,12 @@
 {
-  "name": "morgan-sandbox",
+  "name": "morgan",
   "version": "1.0.0",
-  "description": "Morgan sandbox",
   "main": "index.js",
+  "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "nodemon morgan.js"
+    "start": "nodemon index.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "morgan": "^1.9.1",

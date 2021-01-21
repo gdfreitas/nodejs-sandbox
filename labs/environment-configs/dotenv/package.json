@@ -1,13 +1,10 @@
 {
-  "name": "jsonwebtoken",
+  "name": "dotenv",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
-    "jsonwebtoken": "8.5.1"
+    "dotenv": "^8.0.0"
   }
 }

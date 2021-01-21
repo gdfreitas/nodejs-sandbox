@@ -3,14 +3,16 @@ const jwt = require('jsonwebtoken')
 const privateKey = 'secret_key'
 
 const payload = {
-    userId: 'gabriel.freitas'
+  userId: 'gdfreitas'
 }
 
-const options = {
-    // algorithm: 'RS256',
-    expiresIn: '120ms'
-}
+const encoded = jwt.sign(payload, privateKey, {
+  expiresIn: '1h'
+});
 
-const encoded = jwt.sign(payload, privateKey, options)
+const verified = jwt.verify(encoded, privateKey);
 
-console.log(encoded)
+console.log({
+  encoded,
+  verified
+})

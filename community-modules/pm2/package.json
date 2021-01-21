@@ -1,13 +1,16 @@
 {
-  "name": "jsonwebtoken",
+  "name": "pm2",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "pm2 start ./index.js -i 0",
+    "stop": "pm2 stop default",
+    "monitor": "pm2 dash",
+    "logs": "pm2 logs -f"
   },
   "dependencies": {
-    "jsonwebtoken": "8.5.1"
+    "pm2": "^4.5.1"
   }
 }

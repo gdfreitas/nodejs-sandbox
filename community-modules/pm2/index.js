@@ -1,9 +1,9 @@
-const express = require('express')
+const http = require('http')
 
-const app = express();
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello, world!');
+const server = http.createServer((req, res) => {
+  res.write(`Hello, world ${new Date().toLocaleDateString()}`)
 })
 
-app.listen(3000);
+server.listen(SERVER_PORT, () => console.log(`Server listening on http://localhost:${SERVER_PORT}`))

@@ -1,13 +1,14 @@
 {
-  "name": "jsonwebtoken",
+  "name": "test",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "test": "mocha"
   },
   "dependencies": {
-    "jsonwebtoken": "8.5.1"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
   }
 }

@@ -1,13 +1,12 @@
 {
-  "name": "jsonwebtoken",
+  "name": "npm-scripts",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "jsonwebtoken": "8.5.1"
+    "start": "node index.js",
+    "pre:start": "node index.js",
+    "post:start": "node index.js"
   }
 }

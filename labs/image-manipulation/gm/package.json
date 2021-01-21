@@ -1,5 +1,5 @@
 {
-  "name": "jsonwebtoken",
+  "name": "gm",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
@@ -8,6 +8,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "jsonwebtoken": "8.5.1"
+    "gm": "^1.23.1"
   }
 }

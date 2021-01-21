@@ -1,13 +1,13 @@
 {
-  "name": "jsonwebtoken",
+  "name": "jest",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "test": "jest"
   },
   "dependencies": {
-    "jsonwebtoken": "8.5.1"
+    "jest": "^24.8.0"
   }
 }

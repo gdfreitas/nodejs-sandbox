@@ -1,14 +1,12 @@
 {
-  "name": "nodemon-sandbox",
+  "name": "nodemon",
   "version": "1.0.0",
-  "description": "Nodemon Sandbox",
-  "main": "app.js",
+  "main": "index.js",
+  "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
-  "author": "Gabriel Freitas",
-  "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.6"
   }

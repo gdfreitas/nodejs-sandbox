@@ -1,13 +1,12 @@
 {
-  "name": "jsonwebtoken",
+  "name": "orms-sandbox",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "jsonwebtoken": "8.5.1"
+  "devDependencies": {
+    "knex": "^0.15.2",
+    "pg": "^7.6.0",
+    "sequelize": "^4.44.3"
   }
 }

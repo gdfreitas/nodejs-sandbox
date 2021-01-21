@@ -1,6 +1,6 @@
 {
   "restartable": "rs",
-  "delay": 100,
+  "delay": 1000,
   "ignore": [
     ".git",
     "node_modules/**/node_modules"
