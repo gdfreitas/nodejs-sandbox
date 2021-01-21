@@ -67,9 +67,6 @@ typings/
 *.mp4
 *.pdf
 
-# images folder
-images/
-
 # tesseract data files
 *.traineddata
 
