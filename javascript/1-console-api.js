@@ -1,7 +1,3 @@
-const foo = { name: 'Thomas', age: 30, nervous: false }
-const bar = { name: 'Paul', age: 40, nervous: false }
-const baz = { name: 'Ana', age: 50, nervous: true }
-
 const CONSOLE_COLORS_REF = {
   Reset: '\x1b[0m',
   Bright: '\x1b[1m',
@@ -30,22 +26,18 @@ const CONSOLE_COLORS_REF = {
   BgWhite: '\x1b[47m'
 }
 
-// ES6
-console.log({ foo, bar, baz })
+// Node.js (Colors Refence)
+console.log(`${CONSOLE_COLORS_REF.Blink}Hello, world!${CONSOLE_COLORS_REF.Reset}`)
 
-// CONSOLES (Node.js)
-console.log(`${CONSOLE_COLORS_REF.BgCyan}Hello, world!${CONSOLE_COLORS_REF.Reset}`)
-
-// BROWSERS
+// Browsers (CSS allowed)
 console.log('%cHello, world', 'color: orange; font-weight: bold;')
 
+// Synchronous Benchmark
 console.time('whileBenchmark')
-
 let i = 0
 while (i < 1000000) {
   i++
 }
-
 console.timeEnd('whileBenchmark')
 
 console.trace('Hello, Im logging from here 😭')

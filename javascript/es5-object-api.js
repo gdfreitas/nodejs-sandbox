@@ -1,8 +1,8 @@
 let userAges = {
-  gabriel: 23,
-  ana: 19,
-  pedro: 21,
-  maria: 22
+  Gabriel: 23,
+  Ana: 19,
+  Pedro: 21,
+  Maria: 22
 }
 
 /**
